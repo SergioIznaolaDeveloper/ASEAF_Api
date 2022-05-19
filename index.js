@@ -43,8 +43,7 @@ app.use((error, req, res, next) => {
 
 app.use((req, res) => {
     res.status(404).json({ response: false, message: 'Route not found' })
-})
- console.log(process.env.MONGO_URI)
+});
 app.listen(PORT, async () => {
     try {
         await connectMongo(process.env.MONGO_URI);
