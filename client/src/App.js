@@ -7,20 +7,20 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Signup</p>
-        <form>
-          <label>Nombre</label>
-          <input type="text" name="name" placeholder="Name" />
+        <form method="POST" action="http://localhost:5000/api/signup" >
           <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-          <button>Signup</button>
+          <input type="text" name="email" placeholder="Name" />
+          <label>Pass</label>
+          <input type="password" name="password" placeholder="Email" />
+          <button type="submit">Signup</button>
         </form>
         <p>Login</p>
-        <form>
-          <label>Nombre</label>
-          <input type="text" name="name" placeholder="Name" />
+        <form form method="POST" action="http://localhost:5000/api/login">
           <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-          <button>Login</button>
+          <input type="text" name="email" placeholder="Name"/>
+          <label>Pass</label>
+          <input type="password" name="password" placeholder="Email" />
+          <button type="submit">Login</button>
         </form>
         <a
           className="App-link"
