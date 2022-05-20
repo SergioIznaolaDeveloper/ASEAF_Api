@@ -14,7 +14,6 @@ function Main () {
           <Route element={<Home/>} path='/login'/>
           <Route element={<Tickets/>} path='/tickets' />
           <Route element={<Filtros/>} path='/filtros' />
-         
         </Routes>
       </main>
     )
