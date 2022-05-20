@@ -6,9 +6,22 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>Signup</p>
+        <form>
+          <label>Nombre</label>
+          <input type="text" name="name" placeholder="Name" />
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+          <button>Signup</button>
+        </form>
+        <p>Login</p>
+        <form>
+          <label>Nombre</label>
+          <input type="text" name="name" placeholder="Name" />
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email" />
+          <button>Login</button>
+        </form>
         <a
           className="App-link"
           href="https://reactjs.org"
