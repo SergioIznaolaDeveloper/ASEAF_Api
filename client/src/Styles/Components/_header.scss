@@ -1,0 +1,8 @@
+@import '../utils/variables.scss';
+
+nav{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

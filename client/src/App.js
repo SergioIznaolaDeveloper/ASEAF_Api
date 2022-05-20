@@ -1,5 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './Styles/Styles.scss';
+import { BrowserRouter } from 'react-router-dom';
+
+import Header from './Components/Header';
+import Main from './Components/Main';
+//import Footer from './components/Footer';
+
+//import logo from './logo.svg';
+//import './App.css';
+
 
 function App() {
   return (
@@ -32,6 +40,7 @@ function App() {
         </a>
       </header>
     </div>
+    
   );
 }
 
