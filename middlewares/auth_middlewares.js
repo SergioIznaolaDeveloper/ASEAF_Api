@@ -1,5 +1,3 @@
-const User = require('../models/users_models');
-
 const { getAccessToken, getRefreshToken, storeRefreshToken, verifyAccessToken, verifyRefreshToken } = require('../services/auth_services');
 const { findUserByField } = require('../services/users_services');
 
@@ -58,9 +56,6 @@ const authenticateToken = async (req, res, next) => {
             }
             const dbUser = await findUserByField('email', user.user_id);
             if (refreshToken !== dbUser.refresh_token) {
-                // console.log(refreshToken, dbUser.refresh_token)
-                // console.log(refreshToken)
-                // console.log(dbUser.refresh_token)
                 const error = new AuthenticationError(403, 'Refresh token does not match DB')
                 return next(error)
             }
