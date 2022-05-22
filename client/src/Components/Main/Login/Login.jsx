@@ -1,23 +1,25 @@
 import React, {useState} from 'react'
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function Login() {
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const [response, setResponse] = useState();
+
+  const navigate = useNavigate();
   
 const onSubmit = values => {
   fetchLogin(values.email, values.password);
   reset();
     setTimeout(() => {
-      window.location = '/tickets';
+      navigate('/tickets');
     }, 2000);
 }
   // fetch del login
   const  fetchLogin = async (email, password) =>{
     try{
-        const response = await axios.post('/api/login', {
+        const response = await axios.post('http://localhost:3001/api/login', {
             email: email,
             password: password
           });
