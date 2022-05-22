@@ -20,6 +20,10 @@ const TicketSchema = new mongoose.Schema({
     metros_vivienda: {
         type: Number
     },
+    acogida_denegada: {
+        type: Boolean,
+        default: false
+    },
     acogida: {
         type: Boolean,
         default: false
@@ -33,6 +37,18 @@ const TicketSchema = new mongoose.Schema({
         default: null
     },
     tipo_acogida: {
+        type: String,
+        default: null
+    },
+    fecha_inicio_acogida: {
+        type: String,
+        default: null
+    },
+    fecha_resolucion_acogida: {
+        type: String,
+        default: null
+    },
+    fecha_asignacion_acogida: {
         type: String,
         default: null
     },
