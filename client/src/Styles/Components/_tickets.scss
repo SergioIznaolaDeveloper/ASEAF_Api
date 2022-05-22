@@ -1,45 +1,117 @@
-@import '../utils/variables.scss';
+@import '../Utils/variables.scss';
 
-.filtros{
-    /* border-style: double;
-    border-color: green;
-    border-width: 2px; */
-
-    margin: 2em;
+.tikets{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-flow: column;
+.tikets__getFilters-filters{
+    border-radius: 50%;
+    background-color: #FFD9C6;
+    background-image: url('../../Assets/Icons/filtrar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 56px;
+    height: 56px;
+    border: transparent;
+    }
+&__container{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    align-self: flex-start;
-}
-
-.getFiltros{
-    /* border-style: double;
-    border-color: black;
-    border-width: 2px; */
-
-    margin-bottom: 2em;
-    display: flex;
-    align-self: flex-end;
-    & button{
-        border-radius: 35px;
     }
-}
+&__getFilters{
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-flow: row;
+width: 100%;
+height: 60px;
 
-#informacion{
-    border-style: double;
-    border-color: black;
-    border-width: 2px;
-
-    margin-bottom: 2em;
-    padding: 0.8em;
-    border-radius: 15px;
+&__getFilters-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+    width: 100%;
+    height: 60px;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    & button{
-        align-self: flex-end;
-        border-radius: 15px;
-        background-color: grey;
-        color: white;
     }
+}
+&__AddInfo{
+    top: 75px;
+    left: 90px;
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FF5700;
+    }
+&__getFilters-button-text{
+    color: #3E3E3E;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+&__getFilters{
+margin: 15px 0px;
+width: 85vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-flow: row; 
+}
+
+&__getFilters-plus{
+border-radius: 50%;
+background-color: #FFD9C6;
+width: 56px;
+height: 56px;
+font-size: 30px;
+border: transparent;
+color: #FF5700;
+}
+&__tiket{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-flow: column;
+width: 85vw;
+background-color: #F7F7F7 ;
+border-radius: 16px;
+margin: 10px;
+}
+&__tiket-title{
+font-size: 20px;
+align-self: flex-start;
+margin: 10px 20px 0px;
+}
+&__tiket-text{
+align-self: flex-start;
+margin: 10px 20px 0px;
+}
+&__tiket-status-denied,
+&__tiket-status-processing,
+&__tiket-status-approved{
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+display: flex;
+justify-content: center;
+align-items: center;
+align-self: flex-end;
+margin: 10px 20px 20px;
+background-color: #A7E3C9;
+padding: 5px 10px;
+border-radius: 16px;
+height: 40px;
+width: 120px;
+color: white;
+}
+&__tiket-status-denied{
+background-color: #EE9B9B;
+color: white;
+}
+&__tiket-status-processing{
+background-color: #C2C2C2;
+color: white;
+}
 }
