@@ -1,29 +1,17 @@
 import React from "react";
-
+import Ticket from "./Ticket/Ticket";
+import { Link } from "react-router-dom";
 function Tickets () {
-  
     return (
-      <div className="filtros">
-        <div className="getFiltros">
-          <button className="filtro" name="filtro" id="filtro">embudo</button>
-          <button className="add" name="add" id="add">+</button>
+      <div className="tikets">
+        <div className="tikets__getFilters">
+
+        <div className="tikets__container">
+        <Link to='/new'><button className="tikets__getFilters-plus" name="add" id="add">+</button></Link>
+        <p className="tikets__AddInfo">Añadir informe</p></div>
+        <Link to='/filtros'><button className="tikets__getFilters-filters"></button></Link>
         </div>
-        <div id="informacion">
-          <p><b>Información</b></p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quaerat debitis, magnam repudiandae magni aspernatur facilis pariatur voluptatem asperiores vel incidunt sapiente consequatur tenetur eius.</p>
-          <button className="status" name="status" id="status">Status</button>
-        </div>
-        <div id="informacion">
-          <p><strong>Información</strong> </p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quaerat debitis, magnam repudiandae magni aspernatur facilis pariatur voluptatem asperiores vel incidunt sapiente consequatur tenetur eius.</p>
-          <button className="status" name="status" id="status">Status</button>
-        </div>
-        <div id="informacion">
-          <p><b>Información</b></p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quaerat debitis, magnam repudiandae magni aspernatur facilis pariatur voluptatem asperiores vel incidunt sapiente consequatur tenetur eius.</p>
-          <button className="status" name="status" id="status">Status</button>
-        </div>
-        
+        <Ticket/>
       </div>
     )
 }

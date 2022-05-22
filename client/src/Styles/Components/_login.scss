@@ -1,0 +1,48 @@
+@import '../Utils/variables.scss';
+
+.login{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-flow: column;
+height: 100vh;
+&__form{
+display: flex;
+align-items: center;
+flex-flow: column;
+}
+&__input{
+width: 85vw;
+height: 50px;
+border-radius: 8px;
+border: 2px solid $border-color;
+margin: 5px;
+background: white;
+    }
+&__input:focus{
+outline: none;
+border: 3px solid $border-color;
+}    
+&__input::-webkit-input-placeholder{
+color: $background-color;
+padding-left: 10px;
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 25px;
+}    
+&__button{
+margin: 25px 5px 0px;
+height: 50px;
+background-color: $border-color;
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 32px;
+border-radius: 32px;
+width: 250px;
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 24px;
+text-align: center;
+color: #F7F7F7;
+}
+}

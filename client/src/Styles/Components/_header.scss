@@ -1,8 +1,19 @@
-@import '../utils/variables.scss';
+@import '../Utils/variables.scss';
 
-nav{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-evenly;
+.header{
+    &__nav{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 60px;
+        background-color: white;
+    }
+    &__link{
+        color: #3E3E3E;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
 }
