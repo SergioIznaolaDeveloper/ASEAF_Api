@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 export default function Signup() {
@@ -41,7 +42,7 @@ return (
       })}/>
       <button className="login__button" type="submit">Signup</button>
     </form>
-    <a href="/login"><button className="login__button" type="submit">Login</button></a>
+    <Link className="login__button" to="/login">Login</Link>
     </section>
   )
 }

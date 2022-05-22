@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 export default function Login() {
@@ -43,7 +44,7 @@ const onSubmit = values => {
         })}/>
       <button className="login__button" type="submit">Login</button>
     </form>
-    <a href="/signup"><button className="login__button" type="submit">Signup</button></a>
+    <Link className="login__button" to="/signup">Signup</Link>
     {errors.email?.type?<p>El formato email no es correcto. Ejemplo: nombreapellido@gmail.com</p>: null}
     </section>
   )
