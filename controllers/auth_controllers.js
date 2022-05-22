@@ -14,7 +14,7 @@ const initSignUp = async (req, res, next) => {
         // }
         const { email, password } = req.body;
         req.user = { user_id: email };
-        const newUser = await saveUser( email, password );
+        const newUser = await saveUser(email, password);
         if (!newUser) {
             const error = new AuthenticationError(400, 'Unable to sign up');
             return next(error)
@@ -28,7 +28,7 @@ const initSignUp = async (req, res, next) => {
 
 const closeSignUp = (req, res, next) => {
     try {
-        res.status(201).header('Access-Control-Allow-Credentials', true).json({ authenticated: true, message: 'User registered' });
+        res.status(201).header('Access-Control-Allow-Credentials', true).json({ response: true, authenticated: true, message: 'User registered' });
     }
     catch (error) {
         return (next(error))
@@ -58,7 +58,7 @@ const initSignIn = async (req, res, next) => {
 
 const closeSignIn = (req, res, next) => {
     try {
-        res.status(200).header('Access-Control-Allow-Credentials', true).json({ authenticated: true, message: 'User logged in', user:req.user.user_id });
+        res.status(200).header('Access-Control-Allow-Credentials', true).json({ response: true, authenticated: true, message: 'User logged in', user: req.user.user_id });
     }
     catch (error) {
         return next(error)
