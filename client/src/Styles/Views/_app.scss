@@ -1,0 +1,10 @@
+.main{
+    min-height: 100vh;
+    background-color: $background-color;
+    display: flex;
+    justify-content: center;
+    font-family: "poppins";
+}
+.page__title{
+    color: $border-color;
+}

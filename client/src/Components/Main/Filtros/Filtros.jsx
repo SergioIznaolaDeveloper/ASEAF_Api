@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class Filtros extends Component {
   render() {
-    return <div>Filtros</div>;
+    return <section className="filters">
+      Filtros
+      </section>;
   }
 }
 
