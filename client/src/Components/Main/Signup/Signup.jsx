@@ -16,7 +16,7 @@ export default function Signup() {
 // fetch del signup
 const  fetchSignup = async (email, password) =>{
   try{
-      const response = await axios.post('/api/signup', {
+      const response = await axios.post('http://localhost:5000/api/signup', {
           email: email,
           password: password
         });
@@ -29,20 +29,22 @@ const  fetchSignup = async (email, password) =>{
 }
 return (
 <section className='login'>
-  <h1 className='page__title'>SIGNUP</h1>
-      {response?.message?<p>{response.message}</p>: null}
-    <form onSubmit={handleSubmit(onSubmit)} className="login__form">
-      <input placeholder="Usuario" type="email" className="login__input"      
+<form onSubmit={handleSubmit(onSubmit)} className="login__form">
+    <div className='login__icon'/>
+    <h1 className='login__title'>Crea una cuenta</h1>
+      <label className='login__label'>Usuario</label>
+      <input placeholder="Email" type="email" className="login__input"      
         {...register("email", {
           required: "Required",
         })}/>
+      <label className='login__label'>Contraseña</label>
       <input  placeholder="Contraseña" type="password" className="login__input"      
-      {...register("password", {
-        required: "Required",
-      })}/>
-      <button className="login__button" type="submit">Signup</button>
+        {...register("password", {
+          required: "Required",
+        })}/>
+      <p>¿Ya tienes cuenta?</p><Link to="/login">Accede</Link>
+      <button className="login__button" type="submit">Acceder</button>
     </form>
-    <Link className="login__button" to="/login">Login</Link>
     </section>
   )
 }

@@ -5,30 +5,42 @@ display: flex;
 justify-content: flex-start;
 align-items: center;
 flex-flow: column;
+width: 100vw;
 .tikets__getFilters-filters{
-    border-radius: 50%;
-    background-color: #FFD9C6;
-    background-image: url('../../Assets/Icons/filtrar.png');
+    background-color: white;
+    background-image: url('../../Assets/Icons/tune.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 25px;
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 36px;
+    transform: scale(1.2);
     border: transparent;
+    margin-right: 15px;
     }
 &__container{
     display: flex;
     justify-content: center;
     align-items: center;
     }
+&__buscador{
+    background-color: #F6F6F6;
+    width: 75%;
+    height: 48px;
+    margin-left: 15px;
+}
 &__getFilters{
 display: flex;
 justify-content: space-between;
 align-items: center;
 flex-flow: row;
+height: 65px;
+background-color: white;
 width: 100%;
-height: 60px;
-
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-flow: row; 
 &__getFilters-button{
     display: flex;
     justify-content: center;
@@ -39,12 +51,17 @@ height: 60px;
     background-color: white;
     }
 }
-&__AddInfo{
-    top: 75px;
-    left: 90px;
-    margin-left: 5px;
-    font-size: 18px;
-    font-weight: 600;
+&__AddInfo, &__AddInfo:visited, &__AddInfo:hover, &__AddInfo:active{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 40px;
+    padding-left: 30px;
+    background-color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
     color: #FF5700;
     }
 &__getFilters-button-text{
@@ -53,14 +70,7 @@ height: 60px;
     font-size: 20px;
     font-weight: 600;
 }
-&__getFilters{
-margin: 15px 0px;
-width: 85vw;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-flow: row; 
-}
+
 
 &__getFilters-plus{
 border-radius: 50%;
@@ -81,14 +91,39 @@ background-color: #F7F7F7 ;
 border-radius: 16px;
 margin: 10px;
 }
+&__tiket-titleContainer{
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-flow: row;
+width: 100%;
+p {
+    color: #FFB189;
+    font-size: 12px;
+    margin: 5px 20px 0px 0px;
+}
+}
 &__tiket-title{
 font-size: 20px;
 align-self: flex-start;
-margin: 10px 20px 0px;
+margin: 5px 0px 0px 20px;
+}
+&__tiket-infoContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row;
+    }
+&__tiket-textContainer{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-flow: column;
 }
 &__tiket-text{
 align-self: flex-start;
 margin: 10px 20px 0px;
+font-size: 11px;
 }
 &__tiket-status-denied,
 &__tiket-status-processing,

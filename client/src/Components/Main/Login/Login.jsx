@@ -19,7 +19,7 @@ const onSubmit = values => {
   // fetch del login
   const  fetchLogin = async (email, password) =>{
     try{
-        const response = await axios.post('/api/login', {
+        const response = await axios.post('http://localhost:5000/api/login', {
             email: email,
             password: password
           });
@@ -32,21 +32,24 @@ const onSubmit = values => {
 }
   return (
     <section className='login'>
-      <h1 className='page__title'>LOGIN</h1>
       {response?.message?<p>{response.message}</p>: null}
       {response?.user?<p>{response.user}</p>: null}
     <form onSubmit={handleSubmit(onSubmit)} className="login__form">
+    <div className='login__icon'/>
+    <h1 className='login__title'>Acceder a tu cuenta</h1>
+      <label className='login__label'>Usuario</label>
       <input placeholder="Email" type="email" className="login__input"      
         {...register("email", {
           required: "Required",
         })}/>
-        <input  placeholder="Contraseña" type="password" className="login__input"      
+      <label className='login__label'>Contraseña</label>
+      <input  placeholder="Contraseña" type="password" className="login__input"      
         {...register("password", {
           required: "Required",
         })}/>
-      <button className="login__button" type="submit">Login</button>
+      <p>¿No tienes cuenta?</p><Link to="/signup">Registrate</Link>
+      <button className="login__button" type="submit">Acceder</button>
     </form>
-    <Link className="login__button" to="/signup">Signup</Link>
     {errors.email?.type?<p>El formato email no es correcto. Ejemplo: nombreapellido@gmail.com</p>: null}
     </section>
   )
