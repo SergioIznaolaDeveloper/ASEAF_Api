@@ -16,7 +16,7 @@ export default function Signup() {
 // fetch del signup
 const  fetchSignup = async (email, password) =>{
   try{
-      const response = await axios.post('http://localhost:5000/api/signup', {
+      const response = await axios.post('/api/signup', {
           email: email,
           password: password
         });
