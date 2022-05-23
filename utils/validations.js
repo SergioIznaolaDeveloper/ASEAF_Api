@@ -19,12 +19,22 @@ const validateString = (string) => {
 }
 
 const capitalize = (string) => {
-    return string.split('').map((letter, index) => index === 0 ? letter.toUpperCase() : letter.toLowerCase()).join('');
+    let capitalized = '';
+    for (let i = 0; i < string.length; i++) {
+        if (i === 0 || string[i - 1] === ' ') {
+            capitalized += string[i].toUpperCase();
+        } else {
+            capitalized += string[i].toLowerCase();
+        }
+    }
+    return capitalized
 }
 
 const toBoolean = (string) => {
     return string === 'true' ? true : false;
 }
+
+capitalize('dANIEL..carra-s-c_o cAS!adO')
 
 module.exports = {
     validateName,
