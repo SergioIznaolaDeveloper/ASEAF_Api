@@ -1,0 +1,69 @@
+@import '../Utils/variables.scss';
+
+.login{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-flow: column;
+background-color: white;
+border-radius: 10px;
+margin-top: 50px;
+width: 90vw;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+&__icon{
+margin-top: 20px;
+background-image: url('../../Assets/Icons/cuenta.png');
+background-size: cover;
+background-position: center;
+width: 30px;
+height: 30px;
+}
+&__title{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 20px;
+}
+
+&__form{
+display: flex;
+align-items: center;
+flex-flow: column;
+width: 75%;
+}
+&__label{
+font-size: 18px;
+font-weight: 600;
+color: #262626;
+align-self: flex-start;
+}
+&__input{
+width: 100%;
+height: 40px;
+border-radius: 8px;
+border: 1.5px solid #AAAAAA;
+margin: 5px;
+background: white;
+    }
+&__input:focus{
+background: #E8EDF5;
+border: 2px solid #57B8ED;
+}    
+// &__input::-webkit-input-placeholder{
+// }    
+&__button{
+margin: 25px 5px;
+height: 40px;
+background-color: $border-color;
+border: transparent;
+border-radius: 50px;
+width: 110px;
+font-family: 'Poppins';
+font-weight: 400;
+font-size: 15px;
+text-align: center;
+color: #F7F7F7;
+}
+}

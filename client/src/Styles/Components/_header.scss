@@ -1,0 +1,19 @@
+@import '../Utils/variables.scss';
+
+.header{
+    &__nav{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 40px;
+        background-color: #FFB189;
+    }
+    &__link{
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+}

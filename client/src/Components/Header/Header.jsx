@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-class Header extends Component {
-  render() {
-    return <div>Header</div>;
-  }
+function Header() {
+  
+    return (
+      <div className="header"> 
+      <nav className="header__nav">
+        <Link className="header__link" to='/tickets'>TICKETS</Link>
+        <Link className="header__link" to='/filtros'>FILTROS</Link>
+      </nav>
+      </div>
+    )
 }
-
 export default Header;

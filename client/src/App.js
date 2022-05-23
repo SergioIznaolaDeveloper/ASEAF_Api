@@ -1,36 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './Styles/Styles.scss';
+import React, {useState} from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Main from './Components/Main';
+import { Post } from './Context/Post';
 
 function App() {
+  const [formResult, setFormResult] = useState([]);
+  const post = {
+    formResult,
+    setFormResult,
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Signup</p>
-        <form>
-          <label>Nombre</label>
-          <input type="text" name="name" placeholder="Name" />
-          <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-          <button>Signup</button>
-        </form>
-        <p>Login</p>
-        <form>
-          <label>Nombre</label>
-          <input type="text" name="name" placeholder="Name" />
-          <label>Email</label>
-          <input type="text" name="email" placeholder="Email" />
-          <button>Login</button>
-        </form>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter >
+        <Header />
+        <Post.Provider value={post}>
+        <Main/>
+        </Post.Provider>
+        <Footer/>
+      </BrowserRouter>
     </div>
   );
 }

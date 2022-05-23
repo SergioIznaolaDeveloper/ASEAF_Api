@@ -1,9 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+import Login from "../Login";
+//import { Link } from "react-router-dom";
 
-class Home extends Component {
-  render() {
-    return <div>Home</div>;
-  }
+function Home () {
+  
+    return (
+      <div className="home">
+        <Login />
+      </div>
+    )
+  
 }
 
 export default Home;
+
