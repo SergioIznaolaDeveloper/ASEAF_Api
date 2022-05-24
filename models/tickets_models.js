@@ -3,13 +3,26 @@ const mongoose = require('mongoose');
 const MemberSchema = require('./members_models');
 
 const TicketSchema = new mongoose.Schema({
-    member1: MemberSchema,
-    member2: {
+    tipo: {
+        type: String
+    },
+    miembros: {
+        type: Number
+    },
+    miembro1: MemberSchema,
+    miembro2: {
         type: MemberSchema,
         default: null
     },
-    salario: {
-        type: String
+    
+    numero_hijos: {
+        type: Number,
+        default: 0
+    },
+    fecha_hijos: {
+        type: Array,
+        of: String,
+        default: null
     },
     comunidad_autonoma: {
         type: String
@@ -19,10 +32,6 @@ const TicketSchema = new mongoose.Schema({
     },
     metros_vivienda: {
         type: Number
-    },
-    acogida_denegada: {
-        type: Boolean,
-        default: false
     },
     acogida: {
         type: Boolean,
@@ -41,15 +50,15 @@ const TicketSchema = new mongoose.Schema({
         default: null
     },
     fecha_inicio_acogida: {
-        type: String,
+        type: Date,
         default: null
     },
     fecha_resolucion_acogida: {
-        type: String,
+        type: Date,
         default: null
     },
     fecha_asignacion_acogida: {
-        type: String,
+        type: Date,
         default: null
     },
     asociado: {

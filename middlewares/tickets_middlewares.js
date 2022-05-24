@@ -1,10 +1,11 @@
 const Ticket = require('../models/tickets_models');
 
-const { parseBody } = require('../services/tickets_services');
+const { parseCreateBody, parseBody } = require('../services/tickets_services');
 
 const createTicket = async (data) => {
     try {
-        const ticket = await Ticket.create( data);
+        const query = parseCreateBody(data)
+        const ticket = await Ticket.create(query);
         return ticket  
     } 
     catch (error) {

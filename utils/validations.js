@@ -27,14 +27,30 @@ const capitalize = (string) => {
             capitalized += string[i].toLowerCase();
         }
     }
-    return capitalized
+    return string ? capitalized : string
 }
 
 const toBoolean = (string) => {
     return string === 'true' ? true : false;
 }
 
-capitalize('dANIEL..carra-s-c_o cAS!adO')
+const toNumber = (string) => {
+    return string ? Number(string) : null
+}
+
+const parseSalary = (salary) => {
+    const dictionary = {
+        "<18k": 1,
+        "18k<24k": 2,
+        "24k<60k": 3,
+        "60k<": 4
+    }
+    return salary ? dictionary[salary] : null
+}
+
+const toDate = (string) => {
+    return string ? new Date(string) : null
+}
 
 module.exports = {
     validateName,
@@ -42,5 +58,8 @@ module.exports = {
     validateEmail,
     validateString,
     capitalize,
-    toBoolean
+    toBoolean,
+    toNumber,
+    parseSalary,
+    toDate
 }

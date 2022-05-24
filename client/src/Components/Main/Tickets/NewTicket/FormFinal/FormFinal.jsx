@@ -21,7 +21,7 @@ export default function FormFinal() {
   }
   const fetchCreate = async (formulario) =>{
     try{
-        const response = await axios.post('/api/create', {formulario});
+        const response = await axios.post('http://localhost:3001/api/create', {formulario});
         setResponse(await response.data);
         console.log(response.data)
         return response.data;
