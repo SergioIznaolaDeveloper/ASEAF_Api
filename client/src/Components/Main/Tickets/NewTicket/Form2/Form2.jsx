@@ -13,6 +13,7 @@ export default function Form2() {
   }
   return (
     <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
+    {formResult[0].miembros === "2" ? <p className='newTicket__member'>Miembro 1</p> : null}
     <div className='newTicket__input-container'>
     <label className="newTicket__label">Nombre:</label>
     <input className="newTicket__input" {...register("nombre", { required: true, minLength: 3})}/>
@@ -38,23 +39,21 @@ export default function Form2() {
   <label className="newTicket__label">Email:</label>
   <input type="email" className="newTicket__input" {...register("email", { required: true })} />
   </div>
-  <div className='newTicket__input-container'>
-    <fieldset>
-    <label className="newTicket__label">¿Te gustaría asociarte?</label>
+  <div className='newTicket__input-container-radio'>
+    <label className="newTicket__label">Género</label>
   <div>
-    <input {...register("genero")} type="radio" id="mujer" name="genero" value="mujer"
+    <input className="newTicket__input-radio"{...register("genero")} type="radio" id="mujer" name="genero" value="mujer"
            checked/>
-    <label >mujer</label>
+    <label className="newTicket__label-radio">mujer</label>
   </div>
   <div>
-    <input {...register("genero")} type="radio" id="hombre" name="genero" value="hombre"/>
-    <label >hombre</label>
+    <input className="newTicket__input-radio"{...register("genero")} type="radio" id="hombre" name="genero" value="hombre"/>
+    <label className="newTicket__label-radio">hombre</label>
   </div>
   <div>
-    <input {...register("genero")} type="radio" id="otro" name="genero" value="otro"/>
-    <label >otro</label>
+    <input className="newTicket__input-radio"{...register("genero")} type="radio" id="otro" name="genero" value="otro"/>
+    <label className="newTicket__label-radio">otro</label>
   </div>
-  </fieldset>
   </div>
   <div className='newTicket__input-container'>
     <label className="newTicket__label">Fecha de nacimiento:</label>
@@ -76,6 +75,57 @@ export default function Form2() {
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Metros2 de la vivienda:</label>
 <input type="number" className="newTicket__input" {...register("metros_vivienda", { required: true, minLength: 2})} />
+{formResult[0].miembros === "2" 
+? 
+<>
+<p className='newTicket__member' >Miembro 2</p>
+<div className='newTicket__input-container'>
+    <label className="newTicket__label">Nombre:</label>
+    <input className="newTicket__input" {...register("nombre2", { required: true, minLength: 3})}/>
+    </div>
+    <div className='newTicket__input-container'>
+    <label className="newTicket__label">Apellidos:</label>
+    <input className="newTicket__input" {...register("apellidos2", { required: true, minLength: 3})} />
+    </div>
+  <div className='newTicket__input-container'>
+    <label className="newTicket__label">Nacionanlidad:</label>
+    <select {...register("nacionalidad2", { required: true, minLength: 6})}>
+      {paises.map((pais, i) => {
+        return(
+      <option key={i} value={pais}>{paises[i]}</option>
+      )})}
+  </select>
+  </div>
+  <div className='newTicket__input-container'>
+  <label className="newTicket__label">Teléfono:</label>
+  <input type="number" className="newTicket__input" {...register("telefono2", { required: true, minLength: 3})} />
+  </div>
+  <div className='newTicket__input-container'>
+  <label className="newTicket__label">Email:</label>
+  <input type="email" className="newTicket__input" {...register("email2", { required: true })} />
+  </div>
+  <div className='newTicket__input-container-radio'>
+    <label className="newTicket__label">Género</label>
+  <div>
+    <input {...register("genero2")} type="radio" id="mujer" name="genero2" value="mujer"
+           checked/>
+    <label >mujer</label>
+  </div>
+  <div>
+    <input {...register("genero2")} type="radio" id="hombre" name="genero2" value="hombre"/>
+    <label >hombre</label>
+  </div>
+  <div>
+    <input {...register("genero2")} type="radio" id="otro" name="genero2" value="otro"/>
+    <label >otro</label>
+  </div>
+  </div>
+  <div className='newTicket__input-container'>
+    <label className="newTicket__label">Fecha de nacimiento:</label>
+    <input type="date" className="newTicket__input" {...register("fecha_nacimiento2", { required: true })} />
+  </div>
+</>
+: null}
 </div>
   <button className="login__button"  type='submit'>Siguiente</button>
   </form>
