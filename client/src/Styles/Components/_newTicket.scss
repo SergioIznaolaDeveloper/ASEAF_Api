@@ -127,3 +127,12 @@
     margin: 10px 0px;
   }
 }
+.send_gif{
+ background-image: url('../../Assets/Gifs/sended.gif');
+ width: 350px;
+ height: 350px;
+ mix-blend-mode: multiply; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
