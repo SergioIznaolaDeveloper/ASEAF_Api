@@ -4,6 +4,7 @@
   align-items: center;
   flex-flow: column;
   margin-top: 25px;
+  
   &__input-container {
     display: flex;
     justify-content: center;
@@ -11,15 +12,46 @@
     flex-flow: column;
     width: 100%;
   }
+  &__input-container-radio {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+    width: 98%;
+  }
+  &__input{
+    width: 320px;
+    height: 55px;
+    border: 1px solid #61697c;
+    background-color: #e8edf5;
+    border-radius: 8px;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+  }
+  &__input-radio{
+    align-self: flex-start;
+    justify-self: flex-start;
+    height: 15px;
+    border: 1px solid #61697c;
+    background-color: #e8edf5;
+  }
   &__title{
     font-size: 16px;  
   }
+  &__member{
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 600;
+   }
   &__progres1{
     background-image: url('../../Assets/Icons/progreso1.png');
     background-size: cover;
     background-position: center;
-    width: 320px;
-    height: 19px;
+    width: 300px;
+    height: 17px;
   }
   &__progres2{
     background-image: url('../../Assets/Icons/progreso2.png');
@@ -56,23 +88,19 @@
       width: 320px;
       height: 19px;
     }
+
+
   &__form {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
     width: 100%;
-    input{
-        width: 90%;
-        height: 55px;
-        border: 1px solid #61697c;
-        background-color: #e8edf5;
-        border-radius: 8px;
-        padding: 0px 10px;
-        margin-bottom: 10px;
-    }
+
+
     select {
-      width: 90%;
+      width: 340px;
       height: 55px;
       border: 1px solid #61697c;
       background-color: #e8edf5;
@@ -93,7 +121,7 @@
     }
 }
   &__label {
-    width: 90%;
+    width: 98%;
     font-size: 12px;
     font-weight: 600;
     margin: 10px 0px;

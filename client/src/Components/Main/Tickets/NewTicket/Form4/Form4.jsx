@@ -1,28 +1,42 @@
 import React, {useContext} from 'react'
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Post } from '../../../../../Context/Post';
 const acogimientos =["temporal", "permanente", "urgencia", "especializado"]
 export default function Form4() {
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const {formResult, setFormResult} = useContext(Post);
-  console.log(formResult);
+  const [onChange, setOnChange] = React.useState("false");
+ 
+  console.log(formResult, onChange);
+
   const onSubmit2 = values => {
     setFormResult([...formResult, values]);
     reset();
   }
   return (
 <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
-      <div className='newTicket__input-container'>
+<div className='newTicket__input-container-radio'>
+
         <label className="newTicket__label">¿Has acogido otras veces?</label>
-        <input type="text" className="newTicket__input" {...register("acogida", { required: true, minLength: 2})} />
-      </div>
-      <div className='newTicket__input-container'>
+        <div>
+          <input   className="newTicket__input-radio" onClick={e => setOnChange(e.target.value)} {...register("acogida")} type="radio" id="hombre" name="acogida" value="false" checked/>
+          <label >No</label>
+        </div>
+        <div>
+          <input className="newTicket__input-radio"  onClick={e => setOnChange(e.target.value)} {...register("acogida")} type="radio" id="mujer" name="acogida" value="true"
+                />
+          <label >Si</label>
+        </div>
+    </div>
+    {onChange === "true" ?
+  <>
+  <div className='newTicket__input-container'>
         <label className="newTicket__label">¿Cuántas veces ha acogido?</label>
         <input type="number" className="newTicket__input" {...register("numero_acogida", { required: true, minLength: 1})} />
       </div>
       <div className='newTicket__input-container'>
-        <label className="newTicket__label">Tiempo total de acogida:</label>
-        <input type="text" className="newTicket__input" {...register("tiempo_acogida", { required: true, minLength: 2})} />
+        <label className="newTicket__label">Tiempo total de acogida: (meses)</label>
+        <input type="number" className="newTicket__input" {...register("tiempo_acogida", { required: true, minLength: 1})} />
       </div>
       <div className='newTicket__input-container'>
     <label className="newTicket__label">Tipo de acogimiento:</label>
@@ -64,6 +78,10 @@ export default function Form4() {
     </div>
     </>
     : null}
+  </>
+  : 
+  null  
+  }
   <button className="login__button" type='submit'>SIGUIENTE</button>
     </form>
   )
