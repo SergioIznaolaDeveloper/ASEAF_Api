@@ -47,7 +47,9 @@ useEffect(() => {
    // fetch a la base de datos con post para creat ticket
    const fetchCreate = async (formulario) =>{
     try{
+
         const response = await axios.post('http://localhost:5000/api/create', {formulario});
+
         setResponse(await response.data);
         console.log(response.data)
         return response.data;

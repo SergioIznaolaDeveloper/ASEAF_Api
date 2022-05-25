@@ -1,13 +1,22 @@
-const { createTicket, getTickets } = require('../middlewares/tickets_middlewares');
+const { getAll, createTicket, getTickets } = require('../middlewares/tickets_middlewares');
 
 const { CustomError } = require('../utils/errors');
+
+const getAllTickets = async (req, res, next) => {
+    try {
+        const tickets = await getAll();
+        res.status(200).json({ response: true, authenticated: true, data: tickets })
+    } 
+    catch (error) {
+        return next(error)
+    }
+}
 
 const createNewTicket = async (req, res, next) => {
     try {
         const ticket = await createTicket(req.body.formulario);
         if (!ticket) {
-            const error = new CustomError(500, 'Unable to create ticket in DB. Please, try later');
-            return next(error)
+            
         }
         res.status(201).json({ response: true, authenticated: true, data: ticket })
     } catch (error) {
@@ -29,6 +38,7 @@ const getFilteredTickets = async (req, res, next) => {
 }
 
 module.exports = {
+    getAllTickets,
     createNewTicket,
     getFilteredTickets
 }
