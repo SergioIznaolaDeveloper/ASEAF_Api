@@ -43,6 +43,7 @@ export default function Form3() {
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Fecha inicio situación laboral:</label>
 <input type="date" className="newTicket__input" {...register("fecha_profesion", { required: true })} />
+{errors.fecha_profesion?.type === 'required' && <p>Campo obligatorio.</p>}
 </div>
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Franja salarial:</label>

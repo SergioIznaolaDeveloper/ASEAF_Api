@@ -1,8 +1,7 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import Home from "./Home";
-import Login from "./Login";
 import Signup from "./Signup";
+import Login from "./Login";
 import Tickets from './Tickets';
 import NewTicket from './Tickets/NewTicket';
 import Filtros from './Filtros';
@@ -15,7 +14,7 @@ function Main () {
     return (
       <main className="main">
         <Routes>
-          <Route element={<Home/>} path=''/>
+          <Route element={<Home/>} path='/'/>
           <Route element={<Login/>} path='/login'/>
           <Route element={<Signup/>} path='/signup'/>
           <Route element={<Tickets/>} path='/tickets' />

@@ -1,12 +1,11 @@
 import React from "react";
-import Login from "../Login";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home () {
   
     return (
       <div className="home">
-        <Login />
+        <article className="home__article"></article>
       </div>
     )
   
