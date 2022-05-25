@@ -5,35 +5,41 @@ import axios from 'axios';
 
 export default function Login() {
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
-  const [response, setResponse] = useState();
+  const [responseFetch, setResponseFetch] = useState();
 
-  const navigate = useNavigate();
+const navigate = useNavigate();
+
+const onSubmit = async values => {
+  await fetchLogin(values.email, values.password);
   
-const onSubmit = values => {
-  fetchLogin(values.email, values.password);
-  reset();
-    setTimeout(() => {
-      navigate('/tickets');
-    }, 2000);
 }
   // fetch del login
-  const  fetchLogin = async (email, password) =>{
-    try{
-        const response = await axios.post('/api/login', {
-            email: email,
-            password: password
-          });
-        setResponse(await response.data);
-        return response.data;
+const  fetchLogin = async (email, password) =>{
+  try{
+    const response = await axios.post('http://localhost:5000/api/login', {
+        email: email,
+        password: password
+    });
+    setResponseFetch(response.data);
+    if (response.status === 200){
+      console.log(response)
+      setTimeout(() => {
+        reset();
+        navigate('/tickets');
+      }, 2000);
     }
-    catch(error){
-      setResponse(await error);
-    }
+  }
+  catch(error){
+    setResponseFetch(await error);
+    setTimeout(() => {
+      reset();
+      navigate('/');
+    }, 2000);
+  }
 }
   return (
+    <div className='home'>
     <section className='login'>
-      {response?.message?<p>{response.message}</p>: null}
-      {response?.user?<p>{response.user}</p>: null}
     <form onSubmit={handleSubmit(onSubmit)} className="login__form">
     <div className='login__icon'/>
     <h1 className='login__title'>Acceder a tu cuenta</h1>
@@ -47,10 +53,13 @@ const onSubmit = values => {
         {...register("password", {
           required: "Required",
         })}/>
-      <p>¿No tienes cuenta?</p><Link to="/signup">Registrate</Link>
+      {responseFetch?.user?<p className='login__response-true'>Usuario {responseFetch.user} logeado con éxito</p>: null}
+      {responseFetch?.message === "Request failed with status code 401" ? <p className='login__response-false'>Usuario o contraseña no válidas</p>: null}
+      <div className='login__noAccount'><p>¿No tienes cuenta?</p><Link to="/signup">Regístrate</Link></div>
       <button className="login__button" type="submit">Acceder</button>
     </form>
     {errors.email?.type?<p>El formato email no es correcto. Ejemplo: nombreapellido@gmail.com</p>: null}
     </section>
+    </div>
   )
 }
