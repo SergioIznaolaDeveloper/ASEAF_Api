@@ -17,13 +17,11 @@ const createNewTicket = async (req, res, next) => {
 
 const getFilteredTickets = async (req, res, next) => {
     try {
-        // const tickets = await getTickets(req.body);
-        // if (!tickets || tickets.length < 1) {
-        //     return res.status(400).json({ response: false, message: 'No tickets found' });
-        // }
-        // res.status(200).json({ response: true, authenticated: true, data: tickets })
-        console.log(req.body)
-        res.status(200).json({ response: req.body })
+        const tickets = await getTickets(req.body);
+        if (!tickets || tickets.length < 1) {
+            return res.status(400).json({ response: false, message: 'No tickets found' });
+        }
+        res.status(200).json({ response: true, authenticated: true, data: tickets })
     }
     catch (error) {
         return next(error)
