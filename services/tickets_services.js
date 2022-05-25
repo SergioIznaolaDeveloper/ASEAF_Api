@@ -16,34 +16,33 @@ const parseCreateBody = (body) => {
         else if (body[key] && (key === "salario" || key === "salario2")) {
             return body[key] = parseSalary(body[key])
         }
-        else if (body[key] && (key === "acogida" || key === "asociado" || key === "querie_asociado")) {
+        else if (body[key] && (key === "acogida" || key === "asociado" || key === "quiere_asociado")) {
             return body[key] = toBoolean(body[key])
         }
     });
-
     return body
 }
 
 const parseFilterBody = (body) => {
     const keys = Object.keys(body);
-    const query = {};
-    
+    const filter = [];
+
     keys.forEach(key => {
         if (body[key] && (key === "acogida" || key === "asociado")) {
-            return query[key] = toBoolean(body[key])
+            return filter.push({ [key]: toBoolean(body[key]) })
         }
         else if (body[key] && key === "miembros") {
-            return query[key] = toNumber(body[key])
+            return filter.push({ [key]: toNumber(body[key]) })
         }
         else if (body[key] && key === "salario") {
-            return query[key] = parseSalary(body[key])
+            return filter.push({ [key]: parseSalary(body[key]) })
         }
         else if (body[key]) {
-            return query[key] = body[key]
+            return filter.push({ [key]: body[key] })
         }
     });
 
-    return query
+    return {$and: filter}
 }
 
 // const parseBody = (body) => {
