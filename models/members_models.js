@@ -20,16 +20,7 @@ const MemberSchema = new mongoose.Schema({
         type: String
     },
     fecha_nacimiento: {
-        type: String,
-        default: null
-    },
-    numero_hijos: {
-        type: Number,
-        default: 0
-    },
-    fecha_hijos: {
-        type: Array,
-        of: String,
+        type: Date,
         default: null
     },
     estado_civil: {
@@ -43,8 +34,11 @@ const MemberSchema = new mongoose.Schema({
         default: null
     },
     fecha_profesion: {
-        type: String,
+        type: Date,
         default: null
+    },
+    salario: {
+        type: Number
     },
 });
 
