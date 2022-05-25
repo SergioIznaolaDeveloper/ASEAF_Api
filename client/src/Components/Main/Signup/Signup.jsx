@@ -18,7 +18,7 @@ const  fetchSignup = async (email, password) =>{
   try{
 
 
-      const response = await axios.post('/api/signup', {
+      const response = await axios.post('http://localhost:5000/api/signup', {
 
 
           email: email,

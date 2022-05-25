@@ -48,7 +48,7 @@ useEffect(() => {
    const fetchCreate = async (formulario) =>{
     try{
 
-        const response = await axios.post('/api/create', {formulario});
+        const response = await axios.post('http://localhost:5000/api/create', {formulario});
 
         setResponse(await response.data);
         console.log(response.data)
