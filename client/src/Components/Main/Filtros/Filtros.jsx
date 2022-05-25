@@ -35,7 +35,7 @@ export default function Filtros() {
 
    const fetchSearch = async (values) =>{
     try{
-        const response = await axios.post('http://localhost:5000/api/filter', {values});
+        const response = await axios.post('/api/filter', {values});
         setResponse(await response.data);
         console.log(response.data)
         return response.data;
