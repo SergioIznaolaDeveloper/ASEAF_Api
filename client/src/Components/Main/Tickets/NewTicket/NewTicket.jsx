@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useForm } from "react-hook-form";
 import { Post } from '../../../../Context/Post';
 import Form1 from './Form1/Form1';
@@ -23,17 +23,22 @@ const onSubmit2 = values => {
   setFormResult([...formResult, values]);
   reset();
 }
-const onSubmit3 = values => {
-  setFormResult([...formResult, values]);
-  onSubmitCreate()
-  reset();
-}
-// creación del objeto con los datos del formulario
+useEffect(() => {
+  if(formResult.length === 7){
+    onSubmitCreate()
+  } else if ( formResult.length === 6 && formResult[5].quiere_asociacion === "false"){
+    onSubmitCreate()
+  } else if ( formResult.length === 6 && formResult[5].asociacion){
+    onSubmitCreate()
+  }
+} , [formResult])
+
+
   const onSubmitCreate = () => {
     if (formResult.length === 7) {
       formulario = {...formResult[0], ...formResult[1], ...formResult[2], ...formResult[3], ...formResult[4], ...formResult[5], ...formResult[6]}
     } else {
-      formulario = {...formResult[0], ...formResult[1], ...formResult[2], ...formResult[3], ...formResult[4], ...formResult[5], ...formResult[6], ...formResult[7]}
+      formulario = {...formResult[0], ...formResult[1], ...formResult[2], ...formResult[3], ...formResult[4], ...formResult[5]}
     }
     console.log(formulario)
     fetchCreate(formulario)
@@ -42,7 +47,9 @@ const onSubmit3 = values => {
    // fetch a la base de datos con post para creat ticket
    const fetchCreate = async (formulario) =>{
     try{
-        const response = await axios.post('http://localhost:3001/api/create', {formulario});
+
+        const response = await axios.post('http://localhost:5000/api/create', {formulario});
+
         setResponse(await response.data);
         console.log(response.data)
         return response.data;
@@ -117,7 +124,7 @@ const onSubmit3 = values => {
       <button className="login__button" type='submit'>SIGUIENTE</button>
       </form>
       :
-      <form className='newTicket__form' onSubmit={handleSubmit(onSubmit3)}>
+      <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
       <div className='newTicket__input-container-radio'>
         <label className="newTicket__label">¿Te gustaría asociarte?</label>
             <div>
@@ -140,7 +147,7 @@ const onSubmit3 = values => {
       <>
       <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
       <div className='newTicket__progres5'></div>
-      <form className='newTicket__form' onSubmit={handleSubmit(onSubmit3)}>
+      <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
         <div className='newTicket__input-container'>
           <label className="newTicket__label">Asociación:</label>
           <select {...register("asociacion", { required: true})}>
@@ -158,7 +165,7 @@ const onSubmit3 = values => {
     <>
     <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
     <div className='newTicket__progres5'></div>
-    <form className='newTicket__form' onSubmit={handleSubmit(onSubmit3)}>
+    <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Asociación:</label>
         <select {...register("quiere_asociacion", { required: true})}>
