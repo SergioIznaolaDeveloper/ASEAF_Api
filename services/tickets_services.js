@@ -1,6 +1,7 @@
 const { validateName, validateNumber, validateEmail, validateString, capitalize, toBoolean, toNumber, parseSalary, toDate } = require('../utils/validations');
 
 const parseCreateBody = (body) => {
+    console.log(body)
     const keys = Object.keys(body);
 
     keys.forEach(key => {
@@ -16,11 +17,11 @@ const parseCreateBody = (body) => {
         else if (body[key] && (key === "salario" || key === "salario2")) {
             return body[key] = parseSalary(body[key])
         }
-        else if (body[key] && (key === "acogida" || key === "asociado" || key === "querie_asociado")) {
+        else if (body[key] && (key === "acogida" || key === "asociado" || key === "quiere_asociado")) {
             return body[key] = toBoolean(body[key])
         }
     });
-
+    console.log(body)
     return body
 }
 
