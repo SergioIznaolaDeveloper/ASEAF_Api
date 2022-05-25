@@ -1,25 +1,25 @@
 import React, {useContext} from 'react'
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Post } from '../../../../../Context/Post';
 const acogimientos =["temporal", "permanente", "urgencia", "especializado"]
 export default function Form4() {
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const {formResult, setFormResult} = useContext(Post);
   const [onChange, setOnChange] = React.useState("false");
- 
   console.log(formResult, onChange);
 
   const onSubmit2 = values => {
     setFormResult([...formResult, values]);
     reset();
   }
+
   return (
 <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
 <div className='newTicket__input-container-radio'>
 
         <label className="newTicket__label">¿Has acogido otras veces?</label>
         <div>
-          <input   className="newTicket__input-radio" onClick={e => setOnChange(e.target.value)} {...register("acogida")} type="radio" id="hombre" name="acogida" value="false" checked/>
+          <input   className="newTicket__input-radio" onClick={e => setOnChange(e.target.value)} {...register("acogida")} type="radio" id="hombre" name="acogida" value="false" />
           <label >No</label>
         </div>
         <div>
