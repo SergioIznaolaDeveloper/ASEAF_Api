@@ -1,7 +1,6 @@
 const { validateName, validateNumber, validateEmail, validateString, capitalize, toBoolean, toNumber, parseSalary, toDate } = require('../utils/validations');
 
 const parseCreateBody = (body) => {
-    console.log(body)
     const keys = Object.keys(body);
 
     keys.forEach(key => {
@@ -21,30 +20,29 @@ const parseCreateBody = (body) => {
             return body[key] = toBoolean(body[key])
         }
     });
-    console.log(body)
     return body
 }
 
 const parseFilterBody = (body) => {
     const keys = Object.keys(body);
-    const query = {};
-    
+    const filter = [];
+
     keys.forEach(key => {
         if (body[key] && (key === "acogida" || key === "asociado")) {
-            return query[key] = toBoolean(body[key])
+            return filter.push({ [key]: toBoolean(body[key]) })
         }
         else if (body[key] && key === "miembros") {
-            return query[key] = toNumber(body[key])
+            return filter.push({ [key]: toNumber(body[key]) })
         }
         else if (body[key] && key === "salario") {
-            return query[key] = parseSalary(body[key])
+            return filter.push({ [key]: parseSalary(body[key]) })
         }
         else if (body[key]) {
-            return query[key] = body[key]
+            return filter.push({ [key]: body[key] })
         }
     });
 
-    return query
+    return {$and: filter}
 }
 
 // const parseBody = (body) => {
