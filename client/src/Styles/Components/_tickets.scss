@@ -6,7 +6,25 @@ justify-content: flex-start;
 align-items: center;
 flex-flow: column;
 width: 100vw;
-.tikets__getFilters-filters{
+&__more-info{
+    background-image: url("../../Assets/Icons/more_info.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 20px;
+    cursor: pointer;
+}
+&__close-info{
+    background-image: url("../../Assets/Icons/more_info.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 20px;
+    transform: rotate(180deg);
+    margin: 0px 10px;
+    cursor: pointer;
+}
+&__getFilters-filters{
     background-color: white;
     background-image: url('../../Assets/Icons/tune.png');
     background-position: center;
@@ -86,7 +104,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-flow: column;
-width: 85vw;
+width: 320px;
 background-color: #F7F7F7 ;
 border-radius: 16px;
 margin: 10px;
@@ -100,19 +118,20 @@ width: 100%;
 p {
     color: #FFB189;
     font-size: 12px;
-    margin: 5px 20px 0px 0px;
+    margin: 10px 20px 0px 0px;
 }
 }
 &__tiket-title{
 font-size: 20px;
 align-self: flex-start;
-margin: 5px 0px 0px 20px;
+margin: 10px 0px 0px 20px;
 }
 &__tiket-infoContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: row;
+    margin-bottom: 15px;
     }
 &__tiket-textContainer{
 display: flex;
