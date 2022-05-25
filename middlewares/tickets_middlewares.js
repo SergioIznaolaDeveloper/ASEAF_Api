@@ -1,12 +1,12 @@
 const Ticket = require('../models/tickets_models');
 
-const { parseCreateBody, parseBody } = require('../services/tickets_services');
+const { parseCreateBody, parseFilterBody } = require('../services/tickets_services');
 
 const createTicket = async (data) => {
     try {
-        const query = parseCreateBody(data)
+        const query = parseCreateBody(data);
         const ticket = await Ticket.create(query);
-        return ticket  
+        return ticket
     } 
     catch (error) {
         return error
@@ -15,9 +15,8 @@ const createTicket = async (data) => {
 
 const getTickets = async (data) => {
     try {
-        const filter = parseBody(data);
-        console.log(filter);
-        const tickets = await Ticket.aggregate([{ $match: filter }]);
+        const filter = parseFilterBody(data);
+        const tickets = await Ticket.find(filter);
         return tickets
     } 
     catch (error) {

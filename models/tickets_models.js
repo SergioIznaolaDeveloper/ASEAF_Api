@@ -9,12 +9,84 @@ const TicketSchema = new mongoose.Schema({
     miembros: {
         type: Number
     },
-    miembro1: MemberSchema,
-    miembro2: {
-        type: MemberSchema,
+    nombre: {
+        type: String
+    },
+    apellidos: {
+        type: String
+    },
+    nacionalidad: {
+        type: String
+    },
+    telefono: {
+        type: Number
+    },
+    email: {
+        type: String
+    },
+    genero: {
+        type: String
+    },
+    fecha_nacimiento: {
+        type: Date,
         default: null
     },
-    
+    estado_civil: {
+        type: String
+    },
+    situacion_laboral: {
+        type: String
+    },
+    profesion: {
+        type: String,
+        default: null
+    },
+    fecha_profesion: {
+        type: Date,
+        default: null
+    },
+    salario: {
+        type: Number
+    },
+    nombre2: {
+        type: String
+    },
+    apellidos2: {
+        type: String
+    },
+    nacionalidad2: {
+        type: String
+    },
+    telefono2: {
+        type: Number
+    },
+    email2: {
+        type: String
+    },
+    genero2: {
+        type: String
+    },
+    fecha_nacimiento2: {
+        type: Date,
+        default: null
+    },
+    estado_civil2: {
+        type: String
+    },
+    situacion_laboral2: {
+        type: String
+    },
+    profesion2: {
+        type: String,
+        default: null
+    },
+    fecha_profesion2: {
+        type: Date,
+        default: null
+    },
+    salario2: {
+        type: Number
+    },    
     numero_hijos: {
         type: Number,
         default: 0
