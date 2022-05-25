@@ -14,6 +14,8 @@ function Header() {
           <Link className="header__link" to='/tickets'>TICKETS</Link>
           <Link className="header__link" to='/filtros'>FILTROS</Link>
         </nav>
+        <Link className="header__logo" to='/'></Link>
+        <Link className="header__link" to='/login'><button className="header__button">Acceder</button></Link>
       </div>
     )
 }
