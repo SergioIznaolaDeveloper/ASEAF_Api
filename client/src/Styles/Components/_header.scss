@@ -1,6 +1,6 @@
 @import '../Utils/variables.scss';
 
-
+//transform translate
 .header{
     &__nav{
         display: flex;
@@ -31,20 +31,57 @@ img{
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+     position: relative;
+    display: inline-block; 
+    /* 
+        margin:auto;
+        width:500px; */
+
+}
+    ul, ol {
+    list-style:none;
+}
+.nav li a {
+    background-color:#000;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
 }
 
-.dropdown-content {
+.nav li a:hover {
+    background-color:#434343;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
+
+/* .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
+} */
 
-.dropdown-content a {
+/* .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -59,4 +96,4 @@ img{
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
-}
+} */
