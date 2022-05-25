@@ -21,6 +21,7 @@ export default function Form3() {
   }
   return (
     <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
+      {formResult[0].miembros === "2" ? <p>Miembro 1</p> : null}
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Situación laboral:</label>
 <select {...register("situacion_laboral", { required: true })}>
@@ -42,6 +43,7 @@ export default function Form3() {
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Fecha inicio situación laboral:</label>
 <input type="date" className="newTicket__input" {...register("fecha_profesion", { required: true })} />
+{errors.fecha_profesion?.type === 'required' && <p>Campo obligatorio.</p>}
 </div>
 <div className='newTicket__input-container'>
 <label className="newTicket__label">Franja salarial:</label>
@@ -69,8 +71,44 @@ export default function Form3() {
 <option key={i} value={provincia}>{provincias[i]}</option>
 )})}
 </select>
-</div>
 
+</div>
+{formResult[0].miembros === "2" 
+?
+<>
+<p>Miembro 2</p>
+<div className='newTicket__input-container'>
+<label className="newTicket__label">Situación laboral:</label>
+<select {...register("situacion_laboral2", { required: true })}>
+{situaciones.map((situacion, i) => {
+  return(
+<option key={i} value={situacion}>{situaciones[i]}</option>
+)})}
+</select>
+</div>
+<div className='newTicket__input-container'>
+<label className="newTicket__label">Sector profesional:</label>
+<select {...register("profesion2", { required: true})}>
+{sectores.map((sector, i) => {
+  return(
+<option key={i} value={sector}>{sectores[i]}</option>
+)})}
+</select>
+</div>
+<div className='newTicket__input-container'>
+<label className="newTicket__label">Fecha inicio situación laboral:</label>
+<input type="date" className="newTicket__input" {...register("fecha_profesion2", { required: true })} />
+</div>
+<div className='newTicket__input-container'>
+<label className="newTicket__label">Franja salarial:</label>
+<select {...register("salario2", { required: true})}>
+{salarios.map((salario, i) => {
+  return(
+<option key={i} value={salario}>{salarios[i]}</option>
+)})}
+</select>
+</div>
+</> : null}
 <button className="login__button" type='submit'>SIGUIENTE</button>
 </form>
   )
