@@ -26,7 +26,6 @@ const parseCreateBody = (body) => {
 const parseFilterBody = (body) => {
     const keys = Object.keys(body);
     const filter = [];
-
     keys.forEach(key => {
         if (body[key] && (key === "acogida" || key === "asociado")) {
             return filter.push({ [key]: toBoolean(body[key]) })
@@ -41,8 +40,7 @@ const parseFilterBody = (body) => {
             return filter.push({ [key]: body[key] })
         }
     });
-
-    return {$and: filter}
+    return filter.length ? {$and: filter} : {}
 }
 
 // const parseBody = (body) => {

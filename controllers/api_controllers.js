@@ -1,4 +1,4 @@
-const { getAll, createTicket, getTickets } = require('../middlewares/tickets_middlewares');
+const { getAll, createTicket, filterTickets } = require('../middlewares/tickets_middlewares');
 
 const { CustomError } = require('../utils/errors');
 
@@ -15,9 +15,6 @@ const getAllTickets = async (req, res, next) => {
 const createNewTicket = async (req, res, next) => {
     try {
         const ticket = await createTicket(req.body.formulario);
-        if (!ticket) {
-            
-        }
         res.status(201).json({ response: true, authenticated: true, data: ticket })
     } catch (error) {
         return next(error)
@@ -26,7 +23,7 @@ const createNewTicket = async (req, res, next) => {
 
 const getFilteredTickets = async (req, res, next) => {
     try {
-        const tickets = await getTickets(req.body.values);
+        const tickets = await filterTickets(req.body.values);
         res.status(200).json({ response: true, authenticated: true, data: tickets })
     }
     catch (error) {

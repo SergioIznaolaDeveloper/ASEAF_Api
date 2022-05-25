@@ -18,7 +18,6 @@ const  fetchLogin = async (email, password) =>{
   try{
 
     const response = await axios.post('http://localhost:5000/api/login', {
-
         email: email,
         password: password
     });
@@ -33,12 +32,9 @@ const  fetchLogin = async (email, password) =>{
   }
   catch(error){
     setResponseFetch(await error);
-    setTimeout(() => {
-      reset();
-      navigate('/');
-    }, 2000);
   }
 }
+
   return (
     <div className='home'>
     <section className='login'>
@@ -60,7 +56,6 @@ const  fetchLogin = async (email, password) =>{
       <div className='login__noAccount'><p>¿No tienes cuenta?</p><Link to="/signup">Regístrate</Link></div>
       <button className="login__button" type="submit">Acceder</button>
     </form>
-    {errors.email?.type?<p>El formato email no es correcto. Ejemplo: nombreapellido@gmail.com</p>: null}
     </section>
     </div>
   )

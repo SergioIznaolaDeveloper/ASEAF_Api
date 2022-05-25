@@ -23,7 +23,7 @@ const createTicket = async (data) => {
     }
 }
 
-const getTickets = async (data) => {
+const filterTickets = async (data) => {
     try {
         const filter = parseFilterBody(data);
         const tickets = await Ticket.find(filter);
@@ -37,5 +37,5 @@ const getTickets = async (data) => {
 module.exports = {
     getAll,
     createTicket,
-    getTickets
+    filterTickets
 }
