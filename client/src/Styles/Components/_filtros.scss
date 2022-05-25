@@ -1,0 +1,90 @@
+@import '../utils/variables.scss';
+
+.filtros{
+    border-style: double;
+    border-color: white;
+    border-radius: 2px;
+
+    width: 90%;
+    
+}
+
+.cajaPadre{
+    border-style: double;
+    border-color: white;
+    border-radius: 5px;
+
+    width: 100%;
+
+}
+
+.genero {
+    border-style: dashed;
+    border-color: black;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+}
+#radios{
+    border-style: dotted;
+    border-color: brown;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 60%;
+}
+
+.nacionalidad{
+    border-style: dashed;
+    border-color: black;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    align-self: baseline;
+
+    width: 75%;
+
+}
+
+.estadoCivil {
+    border-style: dashed;
+    border-color: black;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+
+}
+
+.nivelEducativo {
+    border-style: dashed;
+    border-color: black;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    align-self: baseline;
+
+    width: 75%;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
