@@ -21,7 +21,7 @@ export default function Login() {
     try {
       
       const body = {email: email, password: password};
-      const request = await fetch('http://localhost:5000/api/login', {
+      const request = await fetch('/api/login', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

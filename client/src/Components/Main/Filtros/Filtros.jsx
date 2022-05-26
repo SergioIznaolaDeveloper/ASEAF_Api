@@ -60,7 +60,7 @@ export default function Filtros() {
 
   const fetchSearch = async (values) => {
     try {
-      const request = await fetch('http://localhost:5000/api/filter', {
+      const request = await fetch('/api/filter', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {

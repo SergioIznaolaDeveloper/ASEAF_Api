@@ -13,7 +13,7 @@ function Tickets() {
   const navigate = useNavigate();
 
   const fetchTickets = async () => {
-    const response = await fetch('http://localhost:5000/api');
+    const response = await fetch('/api');
     const data = await response.json();
     if (!data.authenticated) {
       localStorage.setItem('auth', false);
