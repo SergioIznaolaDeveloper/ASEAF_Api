@@ -27,10 +27,8 @@ export default function Signup() {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: email, password: password }),
-        credentials: 'include',
-      },
-      );
+        body: JSON.stringify({ email: email, password: password })
+      });
       if (response.authenticated) {
         setIsAuthenticated(true);
         localStorage.setItem('auth', true);

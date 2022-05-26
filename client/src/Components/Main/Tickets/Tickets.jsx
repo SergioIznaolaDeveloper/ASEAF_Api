@@ -13,12 +13,7 @@ function Tickets() {
   const navigate = useNavigate();
 
   const fetchTickets = async () => {
-    const response = await fetch('http://localhost:5000/api', {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      credentials: 'include',
-    });
+    const response = await fetch('http://localhost:5000/api');
     const data = await response.json();
     if (!data.authenticated) {
       localStorage.setItem('auth', false);
