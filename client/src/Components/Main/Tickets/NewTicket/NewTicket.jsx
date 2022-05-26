@@ -33,7 +33,7 @@ useEffect(() => {
   }
 } , [formResult])
 
-
+  
   const onSubmitCreate = () => {
     if (formResult.length === 7) {
       formulario = {...formResult[0], ...formResult[1], ...formResult[2], ...formResult[3], ...formResult[4], ...formResult[5], ...formResult[6]}
@@ -70,7 +70,11 @@ useEffect(() => {
     {formResult.length === 0 ? 
       <>
       <h1 className='newTicket__title'>Paso 1: Situación familiar</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres1'></div>
+      </div>
       <Form1/>
       </> : 
     null}
@@ -78,7 +82,12 @@ useEffect(() => {
     {formResult.length === 1 ? 
       <>
       <h1 className='newTicket__title'>Paso 2. Datos de los miembros</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres2'></div>
+      <div className='newTicket__progres_back' onClick={e => setFormResult([])}></div>
+      </div>
       <Form2/>
       </>  
     : null}
@@ -86,7 +95,12 @@ useEffect(() => {
     {formResult.length === 2 ?
       <>
       <h1 className='newTicket__title'>Paso 3. Situación profesional</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres3'></div>
+      <div className='newTicket__progres_back' onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
       <Form3/>
       </> 
     : null}
@@ -94,7 +108,12 @@ useEffect(() => {
     {formResult.length === 3 ? 
       <>
       <h1 className='newTicket__title'>Paso 4. Acogimiento</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres4'></div>
+      <div className='newTicket__progres_back' onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
       <Form4/>
       </> 
     : null}
@@ -103,7 +122,12 @@ useEffect(() => {
     <>
       <>
       <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres5'></div>
+      <div className='newTicket__progres_back'onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
       <Form5/>
       </> 
     </>: null}
@@ -111,7 +135,12 @@ useEffect(() => {
     {formResult.length === 5 && formResult[4].asociado === "false" ? 
       <>
       <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres5'></div>
+      <div className='newTicket__progres_back'onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
       {/* NO ASOCIADOS */}
       {onChange === "true" ?
       <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
@@ -152,7 +181,12 @@ useEffect(() => {
       {formResult.length === 5 && formResult[4].asociado === "true" ?
       <>
       <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
+      <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
       <div className='newTicket__progres5'></div>
+      <div className='newTicket__progres_back' onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
       <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
         <div className='newTicket__input-container'>
           <label className="newTicket__label">Asociación:</label>
@@ -170,7 +204,12 @@ useEffect(() => {
   {formResult.length === 6 && formResult[5].quiere_asociado === "true" ?
     <>
     <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
-    <div className='newTicket__progres5'></div>
+    <div className='progres'>
+      <div className='newTicket__progres_close'onClick={e => setFormResult([])}></div>
+      <div className='newTicket__progres_bar'></div>
+      <div className='newTicket__progres5'></div>
+      <div className='newTicket__progres_back' onClick={e => setFormResult(formResult.filter((element, index) => index < formResult.length - 1))}></div>
+      </div>
     <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Asociación:</label>

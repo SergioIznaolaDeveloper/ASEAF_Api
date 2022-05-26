@@ -4,7 +4,7 @@
   align-items: center;
   flex-flow: column;
   margin-top: 25px;
-  
+  min-width: 340px;
   &__input-container {
     display: flex;
     justify-content: center;
@@ -46,40 +46,84 @@
     justify-content: flex-start;
     font-weight: 600;
    }
-  &__progres1{
-    background-image: url('../../Assets/Icons/progreso1.png');
+   .progres{
+     align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+   }
+   &__progres_close{
+    background-image: url('../../Assets/Icons/cerrar.png');
     background-size: cover;
     background-position: center;
-    width: 300px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    position: absolute;
+    margin-left: 310px;
+  }
+  &__progres_back{
+    background-image: url('../../Assets/Icons/more_info.png');
+    transform: rotate(180deg);
+    background-size: cover;
+    background-position: center;
+    width: 10px;
+    height: 18px;
+  }
+  &__progres_bar{
+    background-image: url('../../Assets/Icons/barra.png');
+    background-size: cover;
+    background-position: center;
+    width: 263px;
+    height: 1px;
+    margin-left: 5px;
+    position: absolute;
+    margin-left: 30px;
+  }
+  &__progres1{
+    background-image: url('../../Assets/Icons/progreso1_ok.png');
+    background-size: cover;
+    background-position: center;
+    width: 36px;
+    height: 11px;
+    position: absolute;
+    margin-left: 30px;
   }
   &__progres2{
-    background-image: url('../../Assets/Icons/progreso2.png');
+    background-image: url('../../Assets/Icons/progreso2_ok.png');
     background-size: cover;
     background-position: center;
-    width: 320px;
-    height: 19px;
+    width: 87px;
+    height: 11px;
+    position: absolute;
+    margin-left: 30px;
   }
   &__progres3{
-    background-image: url('../../Assets/Icons/progreso3.png');
+    background-image: url('../../Assets/Icons/progreso3_ok.png');
     background-size: cover;
     background-position: center;
-    width: 320px;
-    height: 19px;
+    width: 152px;
+    height: 11px;
+    position: absolute;
+    margin-left: 30px;
   }
   &__progres4{
-    background-image: url('../../Assets/Icons/progreso4.png');
+    background-image: url('../../Assets/Icons/progreso4_ok.png');
     background-size: cover;
     background-position: center;
-    width: 320px;
-    height: 19px;
+    width: 215px;
+    height: 11px; 
+    position: absolute;
+    margin-left: 30px;
   }
   &__progres5{
-    background-image: url('../../Assets/Icons/progreso5.png');
+    background-image: url('../../Assets/Icons/progreso5_ok.png');
     background-size: cover;
     background-position: center;
-    width: 320px;
-    height: 19px;
+    width: 262px;
+    height: 11px;
+    position: absolute;
+    margin-left: 30px;
   }
   &__progresEnd{
       background-image: url('../../Assets/Icons/progreso_terminado.png');
