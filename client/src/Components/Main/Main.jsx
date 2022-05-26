@@ -8,22 +8,29 @@ import Filtros from './Filtros';
 
 
 import { Routes, Route } from "react-router-dom";
+import { TicketsContextProvider } from '../../Context/Tickets'
 
-function Main () {
-  
-    return (
-      <main className="main">
+function Main() {
+
+  return (
+    <main className="main">
+
+      <TicketsContextProvider>
+
         <Routes>
-          <Route element={<Home/>} path='/'/>
-          <Route element={<Login/>} path='/login'/>
-          <Route element={<Signup/>} path='/signup'/>
-          <Route element={<Tickets/>} path='/tickets' />
-          <Route element={<NewTicket/>} path='/new' />
-          <Route element={<Filtros/>} path='/filtros' />
+          <Route element={<Home />} path='/' />
+          <Route element={<Login />} path='/login' />
+          <Route element={<Signup />} path='/signup' />
+          <Route element={<Tickets />} path='/tickets' />
+          <Route element={<NewTicket />} path='/new' />
+          <Route element={<Filtros />} path='/filtros' />
         </Routes>
-      </main>
-    )
-  
+
+      </TicketsContextProvider>
+
+    </main>
+  )
+
 }
 
 export default Main;
