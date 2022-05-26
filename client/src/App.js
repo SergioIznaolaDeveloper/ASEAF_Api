@@ -11,6 +11,13 @@ import { LoginContextProvider } from './Context/Login'
 
 function App() {
 
+  const [formResult, setFormResult] = useState([]);
+
+  const post = {
+    formResult,
+    setFormResult,
+  }
+
   return (
     <div className="App">
       <BrowserRouter >
@@ -18,7 +25,11 @@ function App() {
         <LoginContextProvider>
 
           <Header />
-          <Main />
+
+          <Post.Provider value={post}>
+            <Main />
+          </Post.Provider>
+
         </LoginContextProvider>
 
 
