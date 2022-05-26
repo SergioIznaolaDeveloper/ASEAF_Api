@@ -29,8 +29,8 @@
   }
 
   .menu__btn {
-    position: fixed;
-    top: 20px;
+    position: absolute;
+    top: 28px;
     left: 20px;
     width: 26px;
     height: 26px;
@@ -39,7 +39,7 @@
   }
   .menu__btn--white {
     position: fixed;
-    top: 20px;
+    top: 28px;
     left: 20px;
     width: 26px;
     height: 26px;
@@ -86,24 +86,29 @@
   }
 
   .menu__box {
-    display: block;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
     position: fixed;
     top: 0;
     left: -100%;
-    width: 277px;
-    height: 318px;
+    width: 220px;
+    height: 230px;
     margin: 0;
-    padding: 80px 0;
+    padding-top: 40px;
     list-style: none;
-    background: linear-gradient(180deg, rgba(255,87,0,1) 0%, rgba(255,177,137,1) 100%);
+    background: linear-gradient(180deg, rgba(255,87,0,1) 0%, rgba(255,163,64,1) 100%);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
     transition-duration: .50s;
     z-index: 1;
+    border-radius: 0px 0px 18px 0px;
+    padding-left: 18px
   }
   .menu__item {
     display: block;
-    padding: 12px 24px;
-    font-size: 20px;
+    margin: 5px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     transition-duration: .50s;

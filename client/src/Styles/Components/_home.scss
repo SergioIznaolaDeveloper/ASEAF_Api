@@ -1,5 +1,9 @@
 
 .home{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
     &__article{
         margin-top: 50px;
         width: 328px;
@@ -25,6 +29,7 @@
         width: 125px;
         height: 35px;
         margin: 5px;
+        cursor: pointer;
        }
        &__buttonCreate{
         border-radius: 15px ;
@@ -35,6 +40,7 @@
         width: 125px;
         height: 35px;
         margin: 5px;
+        cursor: pointer;
        }
        &__description {
         font-size: 12px;
