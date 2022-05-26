@@ -52,12 +52,10 @@ function Tickets() {
       </div>
       <div className="tikets__container">
         <Link to='/new' className="tikets__AddInfo">Añadir ticket</Link>
-
+        </div>
         <section className="tikets__all">
           {tickets.map(ticket => <Ticket key={ticket._id} data={ticket} />)}
         </section>
-
-      </div>
     </div>
   )
 }
