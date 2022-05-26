@@ -47,13 +47,12 @@ useEffect(() => {
    const fetchCreate = async (formulario) =>{
     try{
       console.log('Enviando formulario')
-        const response = await fetch('http://localhost:5000/api/create', {
+        const response = await fetch('/api/create', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
           },
-          credentials: 'include',
           body: JSON.stringify(formulario),
         });
 
