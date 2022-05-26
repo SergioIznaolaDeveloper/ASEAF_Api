@@ -15,12 +15,12 @@ function Nav() {
           <span></span>
         </label>
         <ul className="menu__box">            
-          <li><Link className="menu__item" to="#">Sobre nosotros</Link></li>
-          <li><Link className="menu__item" to="#">Acogimiento</Link></li>
-          <li><Link className="menu__item" to="#">Forfamily</Link></li>
-          <li><Link className="menu__item" to="#">Qué puedes hacer tú</Link></li>
-          <li><Link className="menu__item" to="#">Actividad</Link></li>
-          <li><Link className="menu__item" to="#">Contacto</Link></li>
+          <li><a className="menu__item" href="https://www.aseaf.org/sobre-nosotros">Sobre nosotros</a></li>
+          <li><a className="menu__item" href="https://www.aseaf.org/acogimiento-familiar">Acogimiento</a></li>
+          <li><Link className="menu__item" to="/">Forfamily</Link></li>
+          <li><a className="menu__item" href="https://www.aseaf.org/colabora">Qué puedes hacer tú</a></li>
+          <li><a className="menu__item" href="https://www.aseaf.org/actividad">Actividad</a></li>
+          <li><a className="menu__item" href="https://www.aseaf.org/contacto">Contacto</a></li>
         </ul>
       </div>
     </>

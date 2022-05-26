@@ -30,4 +30,3 @@ module.exports = {
     AuthenticationError,
     ValidationError
 };
-// Error handlers:

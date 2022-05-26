@@ -5,11 +5,6 @@ const { AuthenticationError } = require('../utils/errors');
 
 const { createCookie, removeCookies } = require('../utils/cookies');
 
-const validateUser = (req, res, next) => {
-    // Run validations
-    // ...
-}
-
 const createAccessToken = async (req, res, next) => {
     try {
         const token = await getAccessToken(req.user.user_id);
@@ -61,7 +56,6 @@ const authenticateToken = async (req, res, next) => {
             }
             const newAccessToken = await getAccessToken(dbUser.email);
             const newRefreshToken = await getRefreshToken(dbUser.email);
-            // console.log(newRefreshToken)
             await storeRefreshToken(dbUser.email, newRefreshToken);
             createCookie(res, 'aT', newAccessToken);
             createCookie(res, 'rT', newRefreshToken);
@@ -79,7 +73,6 @@ const authenticateToken = async (req, res, next) => {
     }
 }
 module.exports = {
-    validateUser,
     createAccessToken,
     createRefreshToken,
     authenticateToken,
