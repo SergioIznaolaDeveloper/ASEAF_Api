@@ -19,19 +19,20 @@ export default function Login() {
   // fetch del login
   const fetchLogin = async (email, password) => {
     try {
-
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email: email,
-        password: password
-      }, {
+      
+      const body = {email: email, password: password};
+      const request = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
         },
-        withCredentials: true
+        credentials: 'include',
+        body: JSON.stringify(body),
       });
+      const response = await request.json();
       setResponseFetch(response.data);
-      if (response.status === 200) {
+      if (response.authenticated) {
         setIsAuthenticated(true);
         localStorage.setItem('auth', true);
         setTimeout(() => {
