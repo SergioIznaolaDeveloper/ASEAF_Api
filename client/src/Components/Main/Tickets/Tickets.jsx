@@ -1,19 +1,41 @@
 import React, { useContext, useEffect } from "react";
 import Ticket from "./Ticket/Ticket";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { TicketsContext } from "../../../Context/Tickets";
+import { LoginContext } from '../../../Context/Login';
 
 function Tickets() {
   const { tickets, setTickets } = useContext(TicketsContext);
+  const { isAuthenticated, setIsAuthenticated } = useContext(LoginContext);
+
+  const navigate = useNavigate();
 
   const fetchTickets = async () => {
-    const response = await fetch('http://localhost:5000/api');
+    const response = await fetch('http://localhost:5000/api', {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      credentials: 'include',
+    });
     const data = await response.json();
+    if (!data.authenticated) {
+      localStorage.setItem('auth', false);
+      setIsAuthenticated(false);
+      navigate('/login');
+    }
     return data
   }
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      const auth = localStorage.getItem('auth');
+      if (auth === "true") {
+        setIsAuthenticated(true)
+      } else {
+        navigate('/login')
+      }
+    }
     if (!tickets.length) {
       fetchTickets()
         .then(response => response.response && setTickets(response.data))

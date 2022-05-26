@@ -23,7 +23,7 @@ const createNewTicket = async (req, res, next) => {
 
 const getFilteredTickets = async (req, res, next) => {
     try {
-        const tickets = await filterTickets(req.body.values);
+        const tickets = await filterTickets(req.body);
         res.status(200).json({ response: true, authenticated: true, data: tickets })
     }
     catch (error) {

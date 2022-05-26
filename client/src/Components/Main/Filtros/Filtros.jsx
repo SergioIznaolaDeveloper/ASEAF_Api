@@ -1,8 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import { TicketsContext } from "../../../Context/Tickets";
+import { LoginContext } from '../../../Context/Login';
 ////VARIABLES
 const acogimientos = ["", "temporal", "permanente", "urgencia", "especializado"]
 const salarios = ["", "<18k", "18k<24k", "24k<60k", "60k<"]
@@ -21,28 +23,54 @@ export default function Filtros() {
   const [acogimiento, setAcogimiento] = useState("false");
   const [asociado, setAsociado] = useState("false");
   const [situacion, setSituacion] = useState("freelance");
+
   const { setTickets } = useContext(TicketsContext);
+  const { isAuthenticated, setIsAuthenticated } = useContext(LoginContext);
+  const navigate = useNavigate();
   ///FUNCIONES
+  useEffect(() => {
+    if (!isAuthenticated) {
+      const auth = localStorage.getItem('auth');
+      if (auth === 'true') {
+        setIsAuthenticated(true)
+      } else {
+        return navigate('/login')
+      }
+    }
+  }, []);
+
   const handleChange = (e) => {
     setSituacion(e.target.value)
   }
-  const navigate = useNavigate();
-  
+
+
   const onSubmitSearch = async (values) => {
-    const response = await fetchSearch(values)
-    setTickets(response)
+    const response = await fetchSearch(values);
+    if (!response.authenticated) {
+      localStorage.setItem('auth', false);
+      setIsAuthenticated(false);
+      // setTickets([]);
+      navigate('/login');
+      return
+    }
+    setTickets(response.data)
     reset()
     navigate('/tickets')
   }
 
   const fetchSearch = async (values) => {
     try {
-      const request = await axios.post('http://localhost:5000/api/filter', { values });
-      if (request.data.response && request.data.authenticated) {
-        return request.data.data
-      }
-      // handle authentication failure
-      //...
+      const request = await fetch('http://localhost:5000/api/filter', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      });
+      const response = await request.json();
+      return response
     }
     catch (error) {
       console.log(error)

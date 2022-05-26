@@ -7,11 +7,6 @@ const { AuthenticationError } = require('../utils/errors');
 
 const initSignUp = async (req, res, next) => {
     try {
-        // const validationErrors = signUpValidations(req.body);
-        // if (validationErrors.length) {
-        //     const error = new AuthenticationError(400, validationErrors);
-        //     return next(error)
-        // }
         const { email, password } = req.body;
         req.user = { user_id: email };
         const newUser = await saveUser(email, password);

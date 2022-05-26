@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
+import { LoginContext } from '../../../Context/Login';
+
 export default function Signup() {
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const [response, setResponse] = useState();
+
+  const { setIsAuthenticated } = useContext(LoginContext);
 
   const navigate = useNavigate();
 
@@ -22,6 +26,8 @@ export default function Signup() {
         password: password
       });
       if (response.status === 201) {
+        setIsAuthenticated(true);
+        localStorage.setItem('auth', true);
         setResponse("true");
         return setTimeout(() => {
           navigate('/tickets')
