@@ -3,7 +3,7 @@ const createCookie = (res, name, value) => {
         res.cookie(name, value, {
         secure: true,
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: 'lax',
     });
     } catch (error) {
         console.log(error);
