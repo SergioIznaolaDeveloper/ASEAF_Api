@@ -21,11 +21,17 @@ export default function Signup() {
   // fetch del signup
   const fetchSignup = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', {
-        email: email,
-        password: password
-      });
-      if (response.status === 201) {
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password }),
+        credentials: 'include',
+      },
+      );
+      if (response.authenticated) {
         setIsAuthenticated(true);
         localStorage.setItem('auth', true);
         setResponse("true");
@@ -39,7 +45,7 @@ export default function Signup() {
       setResponse(await error);
     }
   }
-  
+
   return (
     <div className='signup'>
       <section className='login'>
