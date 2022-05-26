@@ -1,16 +1,16 @@
-const { validateName, validateNumber, validateEmail, validateString, capitalize, toBoolean, toNumber, parseSalary, toDate } = require('../utils/validations');
+const { capitalize, toBoolean, toNumber, parseSalary, toDate } = require('../utils/validations');
 
 const parseCreateBody = (body) => {
     const keys = Object.keys(body);
-
+    // console.log(body)    
     keys.forEach(key => {
         if (body[key] && (key === "nombre" || key === "apellidos" || key === "nombre2" || key === "apellidos2")) {
             return body[key] = capitalize(body[key]);
         }
-        else if (body[key] && (key === "telefono" || key === "telefono2" || key === "miembros" || key === "metros_vivienda" || key === "numero_acogida" || key === "tiempo_acogida")) {
+        else if (body[key] && (key === "telefono" || key === "telefono2" || key === "miembros" || key === "metros_vivienda" || key === "numero_hijos" || key === "numero_acogida" || key === "tiempo_acogida")) {
             return body[key] = toNumber(body[key])
         }
-        else if (body[key] && (key === "fecha_nacimiento" || key === "fecha_nacimiento2" || key === "fecha_profesion" || key === "fecha_profesion2" || key === "fecha_inicio_acogida" || key === "fecha_resolucion_acogida" || key === "fecha_asignacion_acogida")) {
+        else if (body[key] && (key === "fecha_nacimiento" || key === "fecha_nacimiento2" || key === "fecha_profesion" || key === "fecha_profesion2" || key === "fecha_inicio_acogida" || key === "fecha_resolucion_acogida" || key === "fecha_asigsnacion_acogida")) {
             return body[key] = toDate(body[key])
         }
         else if (body[key] && (key === "salario" || key === "salario2")) {
@@ -20,12 +20,14 @@ const parseCreateBody = (body) => {
             return body[key] = toBoolean(body[key])
         }
     });
+    // console.log(body)    
     return body
 }
 
 const parseFilterBody = (body) => {
     const keys = Object.keys(body);
     const filter = [];
+    
     keys.forEach(key => {
         if (body[key] && (key === "acogida" || key === "asociado")) {
             return filter.push({ [key]: toBoolean(body[key]) })

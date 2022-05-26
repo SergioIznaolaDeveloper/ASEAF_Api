@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import { Post } from './Context/Post';
-import { Get } from './Context/Get';
-import axios from 'axios';
 
 import { LoginContextProvider } from './Context/Login'
 

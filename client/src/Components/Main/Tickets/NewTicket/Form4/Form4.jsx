@@ -33,12 +33,12 @@ export default function Form4() {
   <div className='newTicket__input-container'>
         <label className="newTicket__label">¿Cuántas veces ha acogido?</label>
         <input type="number" className="newTicket__input" {...register("numero_acogida", { required: true, minLength: 1})} />
-        {errors.numero_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+        {errors.numero_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Tiempo total de acogida: (meses)</label>
         <input type="number" className="newTicket__input" {...register("tiempo_acogida", { required: true, minLength: 1})} />
-        {errors.tiempo_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+        {errors.tiempo_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
       </div>
       <div className='newTicket__input-container'>
     <label className="newTicket__label">Tipo de acogimiento:</label>
@@ -57,17 +57,17 @@ export default function Form4() {
     <div className='newTicket__input-container'>
       <label className="newTicket__label">Fecha inicio:</label>
       <input type="date" className="newTicket__input" {...register("fecha_inicio_acogida", { required: true })} />
-      {errors.fecha_inicio_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+      {errors.fecha_inicio_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
     </div>
     <div className='newTicket__input-container'>
       <label className="newTicket__label">Fecha de resolución:</label>
       <input type="date" className="newTicket__input" {...register("fecha_resolucion_acogida", { required: true })} />
-      {errors.fecha_resolucion_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+      {errors.fecha_resolucion_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
     </div>
     <div className='newTicket__input-container'>
       <label className="newTicket__label">Fecha de asignación:</label>
       <input type="date" className="newTicket__input" {...register("fecha_asignacion_acogida", { required: true })} />
-      {errors.fecha_asignacion_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+      {errors.fecha_asignacion_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
     </div>
     </>
     :
@@ -76,12 +76,12 @@ export default function Form4() {
     <div className='newTicket__input-container'>
       <label className="newTicket__label">Fecha inicio:</label>
       <input type="date" className="newTicket__input" {...register("fecha_inicio_acogida", { required: true })} />
-      {errors.fecha_inicio_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+      {errors.fecha_inicio_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
     </div>
     <div className='newTicket__input-container'>
       <label className="newTicket__label">Fecha de resolución:</label>
       <input type="date" className="newTicket__input" {...register("fecha_resolucion_acogida", { required: true })} />
-      {errors.fecha_resolucion_acogida?.type === 'required' && <p>Campo obligatorio.</p>}
+      {errors.fecha_resolucion_acogida?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
     </div>
     </>
     : null}
