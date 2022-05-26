@@ -6,6 +6,13 @@ justify-content: flex-start;
 align-items: center;
 flex-flow: column;
 width: 100vw;
+&__all{
+    width: 100vw;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
 &__more-info{
     background-image: url("../../Assets/Icons/more_info.png");
     background-position: center;
@@ -131,6 +138,7 @@ margin: 10px 0px 0px 20px;
     justify-content: space-between;
     align-items: center;
     flex-flow: row;
+    width: 95%;
     margin-bottom: 15px;
     }
 &__tiket-textContainer{
