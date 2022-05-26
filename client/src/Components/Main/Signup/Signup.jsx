@@ -5,12 +5,12 @@ import axios from 'axios';
 
 export default function Signup() {
   const { handleSubmit, register, reset} = useForm();
-  const [response, setResponse] = useState();
+  const [setResponse] = useState();
   const onSubmit = values => {
     fetchSignup(values.email, values.password);
     reset();
     setTimeout(() => {
-      window.location = '/';
+      window.location = '/login';
     }, 2000);
   }
 // fetch del signup
@@ -43,7 +43,7 @@ return (
         {...register("password", {
           required: "Required",
         })}/>
-      <div className='login__noAccount'><p>¿Ya tienes cuenta?</p><Link to="/">Accede</Link></div>
+      <div className='login__noAccount'><p>¿Ya tienes cuenta?</p><Link to="/login">Accede</Link></div>
       <button className="login__button" type="submit">Crear</button>
     </form>
     </section>
