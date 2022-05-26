@@ -6,6 +6,7 @@ import axios from 'axios';
 import { LoginContext } from '../../../Context/Login';
 
 export default function Signup() {
+
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const [response, setResponse] = useState();
 
@@ -16,7 +17,6 @@ export default function Signup() {
   const onSubmit = values => {
     fetchSignup(values.email, values.password);
     reset();
-
   }
   // fetch del signup
   const fetchSignup = async (email, password) => {
@@ -55,7 +55,7 @@ export default function Signup() {
             {...register("password", { required: true, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.:\-_,;+*/\\=])[A-Za-z\d@$!%*?&.:\-_,;+*/\\=]{8,50}$/g })} />
           {errors.password?.type === 'pattern' && <p>Formato incorrecto.</p>}
           {response === "true" && <p className='login__response-true'>Usuario registrado.</p>}
-          {!response === "false" && <p className='login__response-false'>Usuario registrado.</p>}
+          {!response === "false" && <p className='login__response-false'>Error al registrarse.</p>}
           <div className='login__noAccount'><p>¿Ya tienes cuenta?</p><Link to="/login">Accede</Link></div>
           <button className="login__button" type="submit">Crear</button>
         </form>

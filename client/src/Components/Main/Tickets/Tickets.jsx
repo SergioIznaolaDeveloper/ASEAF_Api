@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 import Ticket from "./Ticket/Ticket";
 import { Link, useNavigate } from "react-router-dom";
@@ -51,9 +52,12 @@ function Tickets() {
       </div>
       <div className="tikets__container">
         <Link to='/new' className="tikets__AddInfo">Añadir ticket</Link>
-      </div>
-      {tickets.map(ticket => <Ticket key={ticket._id} data={ticket} />)}
 
+        <section className="tikets__all">
+          {tickets.map(ticket => <Ticket key={ticket._id} data={ticket} />)}
+        </section>
+
+      </div>
     </div>
   )
 }

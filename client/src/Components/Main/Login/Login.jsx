@@ -46,7 +46,8 @@ export default function Login() {
   }
 
   return (
-    <div className='home'>
+
+    <div className='signup'>
       <section className='login'>
         <form onSubmit={handleSubmit(onSubmit)} className="login__form">
           <div className='login__icon' />

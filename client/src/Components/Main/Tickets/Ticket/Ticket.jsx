@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 
+
 export default function Ticket({ data }) {
 
   const [extendInfo, setExtendInfo] = useState(false);
