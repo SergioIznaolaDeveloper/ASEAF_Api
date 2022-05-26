@@ -1,5 +1,54 @@
-.home__article{
- width: 328px;
- height: 360px;
- color: white;
+
+.home{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
+    &__article{
+        margin-top: 50px;
+        width: 328px;
+        height: 360px;
+        background-color: white;
+        border-radius: 15px;
+        display: flex;
+       justify-content: flex-start;
+       align-items: center;
+       flex-flow: column;
+       }
+       &__img{
+           background-image: url(../../Assets/niños.png);
+           width: 328px;
+           height: 222px;
+       }
+       &__buttonCall{
+        border-radius: 15px ;
+        border : 1px solid #FF5700;
+        color: #FF5700;
+        font-size: 12px;
+        background-color: transparent;
+        width: 125px;
+        height: 35px;
+        margin: 5px;
+        cursor: pointer;
+       }
+       &__buttonCreate{
+        border-radius: 15px ;
+        border : 1px solid #FF5700;
+        color: white;
+        font-size: 12px;
+        background-color: #FF5700;
+        width: 125px;
+        height: 35px;
+        margin: 5px;
+        cursor: pointer;
+       }
+       &__description {
+        font-size: 12px;
+        font-weight: 600;
+        color: #262626;
+        margin: 15px;
+        text-align: center;
+
+       }
 }
+

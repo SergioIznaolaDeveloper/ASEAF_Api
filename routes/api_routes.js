@@ -9,8 +9,8 @@ router.post('/signup', initSignUp, createAccessToken, createRefreshToken, closeS
 router.post('/login', initSignIn, createAccessToken, createRefreshToken, closeSignIn);
 
 // API routes:
-router.get('/', getAllTickets);
-router.post('/filter', getFilteredTickets);
+router.get('/', authenticateToken, getAllTickets);
+router.post('/filter', authenticateToken, getFilteredTickets);
 router.post('/create', createNewTicket);
 
 module.exports = router;
