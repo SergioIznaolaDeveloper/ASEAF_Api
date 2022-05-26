@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav/Nav";
 
+import { LoginContext } from '../../Context/Login';
+
 function Header() {
   
+  const { isAuthenticated } = useContext(LoginContext);
 
     return (
       <div className="header"> 
         <Nav/>
         <Link className="header__logo" to='/'></Link>
-        <Link className="header__link" to='/login'><button className="header__button">Acceder</button></Link>
+        <Link className="header__link" to='/login'><button className="header__button">{isAuthenticated ? 'Log Out' : 'Acceder'}</button></Link>
       </div>
     )
 }

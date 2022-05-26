@@ -15,7 +15,7 @@ export default function NewTicket() {
   const {formResult, setFormResult} = useContext(Post);
   const [response ,setResponse] = useState();
   //VARIABLES
-  const asociaciones  = ["asociación1","asociación2","asociación3"]
+  const asociaciones  = ["ASEAF","ADAMCAM","FADES"]
   let formulario = {}
 
 // FUNCIONES 
@@ -40,18 +40,24 @@ useEffect(() => {
     } else {
       formulario = {...formResult[0], ...formResult[1], ...formResult[2], ...formResult[3], ...formResult[4], ...formResult[5]}
     }
-    console.log(formulario)
     fetchCreate(formulario)
     reset();
   }
    // fetch a la base de datos con post para creat ticket
    const fetchCreate = async (formulario) =>{
     try{
-
-        const response = await axios.post('/api/create', {formulario});
+      console.log('Enviando formulario')
+        const response = await fetch('http://localhost:5000/api/create', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          body: JSON.stringify(formulario),
+        });
 
         setResponse(await response.data);
-        console.log(response.data)
         return response.data;
     }
     catch(error){
@@ -106,6 +112,7 @@ useEffect(() => {
     {formResult.length === 5 && formResult[4].asociado === "false" ? 
       <>
       <h1 className='newTicket__title'>Paso 5. Asociaciones</h1>
+      <div className='newTicket__progres5'></div>
       {/* NO ASOCIADOS */}
       {onChange === "true" ?
       <form className='newTicket__form' onSubmit={handleSubmit(onSubmit2)}>

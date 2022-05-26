@@ -16,14 +16,14 @@ export default function Form2() {
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Nombre:</label>
         <input className="newTicket__input" {...register("nombre", { required: true, minLength: 2, pattern: /^[A-Za-z\- áéíóúñ]+$/g })} />
-        {errors.nombre?.type === 'required' && <p>Campo obligatorio.</p>}
-        {errors.nombre?.type === 'pattern' && <p>Formato incorrecto.</p>}
+        {errors.nombre?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+        {errors.nombre?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Apellidos:</label>
         <input className="newTicket__input" {...register("apellidos", { required: true, minLength: 2, pattern: /^[A-Za-z\- áéíóúñ]+$/g })} />
-        {errors.apellidos?.type === 'required' && <p>Campo obligatorio.</p>}
-        {errors.apellidos?.type === 'pattern' && <p>Formato incorrecto.</p>}
+        {errors.apellidos?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+        {errors.apellidos?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Nacionanlidad:</label>
@@ -38,14 +38,14 @@ export default function Form2() {
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Teléfono:</label>
         <input type="number" className="newTicket__input" {...register("telefono", { required: true, pattern: /(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/g })} />
-        {errors.telefono?.type === 'required' && <p>Campo obligatorio.</p>}
-        {errors.telefono?.type === 'pattern' && <p>Formato incorrecto.</p>}
+        {errors.telefono?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+        {errors.telefono?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Email:</label>
         <input type="email" className="newTicket__input" {...register("email", { required: true, pattern: /^[\w\-\.]+@[\w\-\.]+\.[a-z]{2,4}$/gi })} />
-        {errors.email?.type === 'required' && <p>Campo obligatorio.</p>}
-        {errors.email?.type === 'pattern' && <p>Formato incorrecto.</p>}
+        {errors.email?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+        {errors.email?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
       </div>
       <div className='newTicket__input-container-radio'>
         <label className="newTicket__label">Género</label>
@@ -66,12 +66,12 @@ export default function Form2() {
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Fecha de nacimiento:</label>
         <input type="date" className="newTicket__input" {...register("fecha_nacimiento", { required: true })} />
-        {errors.fecha_nacimiento?.type === 'required' && <p>Campo obligatorio.</p>}
+        {errors.fecha_nacimiento?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Numero de hijos en la vivienda:</label>
         <input type="number" className="newTicket__input" {...register("numero_hijos", { required: true, minLength: 1, maxLength: 1 })} />
-        {errors.numero_hijos?.type === 'required' && <p>Campo obligatorio.</p>}
+        {errors.numero_hijos?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
       </div>
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Estado civil:</label>
@@ -86,7 +86,7 @@ export default function Form2() {
       <div className='newTicket__input-container'>
         <label className="newTicket__label">Metros2 de la vivienda:</label>
         <input type="number" className="newTicket__input" {...register("metros_vivienda", { required: true, minLength: 2 })} />
-        {errors.metros_vivienda?.type === 'required' && <p>Campo obligatorio.</p>}
+        {errors.metros_vivienda?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
         {formResult[0].miembros === "2"
           ?
           <>
@@ -94,15 +94,15 @@ export default function Form2() {
             <div className='newTicket__input-container'>
               <label className="newTicket__label">Nombre:</label>
               <input className="newTicket__input" {...register("nombre2", { required: true, minLength: 2, pattern: /^[A-Za-z\- áéíóúñ]+$/g })} />
-              {errors.nombre2?.type === 'required' && <p>Campo obligatorio.</p>}
-              {errors.nombre2?.type === 'pattern' && <p>Formato incorrecto.</p>}
+              {errors.nombre2?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+              {errors.nombre2?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
 
             </div>
             <div className='newTicket__input-container'>
               <label className="newTicket__label">Apellidos:</label>
               <input className="newTicket__input" {...register("apellidos2", { required: true, minLength: 2, pattern: /^[A-Za-z\- áéíóúñ]+$/g })} />
-              {errors.apellidos2?.type === 'required' && <p>Campo obligatorio.</p>}
-              {errors.apellidos2?.type === 'pattern' && <p>Formato incorrecto.</p>}
+              {errors.apellidos2?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+              {errors.apellidos2?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
 
             </div>
             <div className='newTicket__input-container'>
@@ -118,14 +118,14 @@ export default function Form2() {
             <div className='newTicket__input-container'>
               <label className="newTicket__label">Teléfono:</label>
               <input type="number" className="newTicket__input" {...register("telefono2", { required: true, pattern: /(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/g })} />
-              {errors.telefono2?.type === 'required' && <p>Campo obligatorio.</p>}
-              {errors.telefono2?.type === 'pattern' && <p>Formato incorrecto.</p>}
+              {errors.telefono2?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+              {errors.telefono2?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
             </div>
             <div className='newTicket__input-container'>
               <label className="newTicket__label">Email:</label>
               <input type="email" className="newTicket__input" {...register("email2", { required: true, pattern: /^[\w\-\.]+@[\w\-\.]+\.[a-z]{2,4}$/gi })} />
-              {errors.email2?.type === 'required' && <p>Campo obligatorio.</p>}
-              {errors.email2?.type === 'pattern' && <p>Formato incorrecto.</p>}
+              {errors.email2?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
+              {errors.email2?.type === 'pattern' && <p className='login__response-false'>Formato incorrecto.</p>}
             </div>
             <div className='newTicket__input-container-radio'>
               <label className="newTicket__label">Género</label>
@@ -146,7 +146,7 @@ export default function Form2() {
             <div className='newTicket__input-container'>
               <label className="newTicket__label">Fecha de nacimiento:</label>
               <input type="date" className="newTicket__input" {...register("fecha_nacimiento2", { required: true })} />
-              {errors.fecha_nacimiento2?.type === 'required' && <p>Campo obligatorio.</p>}
+              {errors.fecha_nacimiento2?.type === 'required' && <p className='login__response-false'>Campo obligatorio.</p>}
             </div>
           </>
           : null}
