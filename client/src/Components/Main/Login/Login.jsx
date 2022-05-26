@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 import { LoginContext } from '../../../Context/Login';
 
 export default function Login() {
-  const { handleSubmit, register, reset, formState: { errors } } = useForm();
+  const { handleSubmit, register, reset } = useForm();
   const [responseFetch, setResponseFetch] = useState();
   const { setIsAuthenticated } = useContext(LoginContext);
 
@@ -31,7 +30,7 @@ export default function Login() {
         body: JSON.stringify(body),
       });
       const response = await request.json();
-      setResponseFetch(response.data);
+      setResponseFetch("true");
       if (response.authenticated) {
         setIsAuthenticated(true);
         localStorage.setItem('auth', true);
@@ -39,6 +38,9 @@ export default function Login() {
           reset();
           navigate('/tickets');
         }, 2000);
+      }
+      else if (!response.authenticated) {
+        setResponseFetch("false");
       }
     }
     catch (error) {
@@ -63,8 +65,8 @@ export default function Login() {
             {...register("password", {
               required: "Required",
             })} />
-          {responseFetch?.user ? <p className='login__response-true'>Usuario {responseFetch.user} logeado con éxito</p> : null}
-          {responseFetch?.message === "Request failed with status code 401" ? <p className='login__response-false'>Usuario o contraseña no válidas</p> : null}
+          {responseFetch === "true" ? <p className='login__response-true'>Usuario logado con éxito</p> : null}
+          {responseFetch === "false" ? <p className='login__response-false'>Usuario o contraseña no válidas</p> : null}
           <div className='login__noAccount'><p>¿No tienes cuenta?</p><Link to="/signup">Regístrate</Link></div>
           <button className="login__button" type="submit">Acceder</button>
         </form>
